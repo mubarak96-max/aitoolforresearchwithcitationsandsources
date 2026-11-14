@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Analyze Likert Scale Data: Items, Scales and the Right Tests</title>
+  <meta name="description" content="How to analyze Likert scale data step by step: single items vs summed scales, medians vs means, Cronbach’s alpha, which tests to run, and how to report the results.">
+  <link rel="canonical" href="/guides/likert-scale-analysis.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="How to Analyze Likert Scale Data: Items, Scales and the Right Tests">
+  <meta property="og:description" content="Single items or summed scales, medians or means, and the tests that fit each, with a worked example.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Analyze Likert Scale Data: Items, Scales and the Right Tests",
+      "description": "How to analyze Likert scale data step by step: single items vs summed scales, medians vs means, Cronbach’s alpha, which tests to run, and how to report the results.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/likert-scale-analysis.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Likert scale analysis"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Likert scale data ordinal or interval?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A single Likert item is ordinal: the categories are ordered but the gaps between them are not guaranteed to be equal. A scale score made by summing or averaging several reliable items is commonly treated as approximately interval, which is why t-tests and ANOVA are standard for scale scores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use the mean or median for Likert data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the median and category percentages for single items. Use the mean and standard deviation for multi-item scale scores. If you report means for single items, say that you are doing so for comparison and avoid interpreting small differences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What test do I use to compare two groups on a Likert item?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the Mann–Whitney U test for two independent groups and the Wilcoxon signed-rank test for the same people measured twice. For a multi-item scale score, an independent or paired t-test is usually appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good Cronbach’s alpha for a Likert scale?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Around 0.70 is often treated as the minimum for research use and 0.80 or above as good. Values above about 0.95 can mean the items are redundant. Report alpha from your own sample, not only the value published for the questionnaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run a regression with Likert data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Use linear regression when the outcome is a multi-item scale score, and ordinal logistic regression when the outcome is a single Likert item. Likert predictors are often entered as scale scores, or as categories if there are few of them."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Likert scale analysis</nav>
+        <p class="kicker">Data · Survey analysis</p>
+        <h1>How to analyze Likert scale data without starting a methods argument</h1>
+        <p class="lead">Likert data starts more arguments between supervisors and students than almost any other kind. Most of them go away once you decide one thing first: are you analysing single items or a scale built from several items?</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>8 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Treat a <strong>single Likert item</strong> as ordinal: report the median and the percentage in each category, and compare groups with Mann–Whitney, Kruskal–Wallis or Wilcoxon tests. Treat a <strong>multi-item scale score</strong> (the sum or mean of several items that measure one idea) as approximately interval once its reliability is acceptable: report the mean and SD, and use t-tests, ANOVA or regression. Say which choice you made and why.
+          </div>
+
+          <h2 id="item-vs-scale">Likert items and Likert scales are not the same thing</h2>
+          <p>A <strong>Likert item</strong> is one statement with ordered response options, such as “The feedback I received was useful”, answered from 1 (strongly disagree) to 5 (strongly agree). A <strong>Likert scale</strong>, in Rensis Likert’s original sense, is a set of such items that together measure one construct, like “satisfaction with feedback”. You add or average the items into one score per respondent.</p>
+          <p>The distinction matters because the two behave differently:</p>
+          <ul>
+            <li>A single item has only five (or seven) possible values. The distance between “agree” and “strongly agree” is not necessarily the same as between “neutral” and “agree”. That makes it <strong>ordinal</strong>.</li>
+            <li>A scale score from, say, eight items can take dozens of values and tends to be roughly continuous. Many methodologists accept treating it as <strong>interval</strong> data, especially with a reasonable sample size.</li>
+          </ul>
+          <p>Sullivan and Artino’s widely cited guide in the <em>Journal of Graduate Medical Education</em>, <a href="https://doi.org/10.4300/JGME-5-4-18">“Analyzing and interpreting data from Likert-type scales”</a>, makes the same split and is a good reference to cite when an examiner asks why you used parametric tests.</p>
+
+          <h2 id="prepare">Step 1: prepare and code the data</h2>
+          <ol>
+            <li><strong>Code responses as numbers</strong> in a consistent direction: 1 = strongly disagree up to 5 = strongly agree.</li>
+            <li><strong>Reverse-code negatively worded items.</strong> If an item reads “I found the feedback confusing”, agreement means lower satisfaction. On a 1–5 scale the reversed score is 6 minus the original (on a 1–7 scale, 8 minus the original).</li>
+            <li><strong>Decide how to handle “don’t know” or “not applicable”.</strong> These are not the midpoint. Code them as missing, not as 3.</li>
+            <li><strong>Check missing data per item and per respondent.</strong> A common rule is to compute a scale score only if a respondent answered most items (for example at least 80%), and to average the answered items rather than summing, so missing items do not drag the score down.</li>
+          </ol>
+
+          <h2 id="describe">Step 2: describe single items properly</h2>
+          <p>For each item, report the distribution, not just one number. Take ten responses to the feedback item:</p>
+          <pre><code>5, 4, 4, 3, 5, 2, 4, 4, 5, 3</code></pre>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Response</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+              <tbody>
+                <tr><td>Count</td><td>0</td><td>1</td><td>2</td><td>4</td><td>3</td></tr>
+                <tr><td>Percent</td><td>0%</td><td>10%</td><td>20%</td><td>40%</td><td>30%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Sorted, the values are 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, so the <strong>median is 4</strong> (the average of the 5th and 6th values, both 4) and the mode is also 4. Seventy percent chose 4 or 5. The mean is 39 ÷ 10 = 3.9. Reporting “median 4, 70% agree or strongly agree” is clearer to a reader than “mean 3.9”, and it does not assume equal spacing between categories.</p>
+          <p>For charts, a <strong>diverging stacked bar</strong> (disagreement to the left of a centre line, agreement to the right) shows many items at once far better than a column of means.</p>
+
+          <h2 id="reliability">Step 3: check reliability before you build a scale score</h2>
+          <p>Adding items together only makes sense if they measure the same thing. The usual check is <strong>Cronbach’s alpha</strong>:</p>
+          <pre><code>α = k / (k − 1) × (1 − Σ item variances / variance of total score)</code></pre>
+          <p>Suppose a 4-item scale has item variances that sum to 3.2, and the variance of the total score is 9.6. Then α = 4/3 × (1 − 3.2/9.6) = 1.333 × 0.667 ≈ <strong>0.89</strong>.</p>
+          <p>Rough conventions: around 0.70 is often treated as acceptable for research use, 0.80 or above as good. Very high values (above about 0.95) can mean items are near-duplicates. Alpha also rises with the number of items, so a long scale can look reliable while still mixing two constructs. If you are developing a new scale, add an exploratory or confirmatory factor analysis rather than relying on alpha alone.</p>
+          <div class="callout">
+            <p><strong>Using an established scale?</strong> Use its published scoring rules, including which items are reversed and whether it is summed or averaged. Report alpha in your own sample anyway, because reliability is a property of scores in a sample, not of the questionnaire.</p>
+          </div>
+
+          <h2 id="tests">Step 4: choose the test</h2>
+          <p>Match the test to the type of variable and the design. This table covers most survey projects:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Question</th><th>Single item (ordinal)</th><th>Scale score (treated as interval)</th></tr></thead>
+              <tbody>
+                <tr><td>Do two independent groups differ?</td><td>Mann–Whitney U</td><td>Independent t-test (Welch)</td></tr>
+                <tr><td>Do three or more groups differ?</td><td>Kruskal–Wallis, then pairwise Dunn tests</td><td>One-way ANOVA, then post hoc tests</td></tr>
+                <tr><td>Did the same people change (before vs after)?</td><td>Wilcoxon signed-rank</td><td>Paired t-test</td></tr>
+                <tr><td>Are two variables related?</td><td>Spearman’s rho</td><td>Pearson’s r</td></tr>
+                <tr><td>What predicts the outcome?</td><td>Ordinal (proportional odds) logistic regression</td><td>Linear regression</td></tr>
+                <tr><td>Is agreement linked to a category?</td><td>Chi-square on collapsed categories (e.g. agree vs not)</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Two practical notes. First, Welch’s t-test is a safer default than the classic Student’s version because it does not assume equal variances. Second, collapsing five categories into two (“agree” vs “not agree”) throws information away; do it for a clear headline, not as your main analysis.</p>
+          <p>If you are unsure which test fits, the AI for Research team keeps a longer <a href="https://aiforresearch.app/blog/which-statistical-test-to-use">decision guide to statistical tests</a>, and the UCLA statistical consulting group’s <a href="https://stats.oarc.ucla.edu/other/mult-pkg/whatstat/">“What statistical analysis should I use?”</a> table shows the same tests with code in several packages.</p>
+
+          <h2 id="mean-debate">The “can I use the mean?” debate, settled for your project</h2>
+          <p>You will find strong opinions on both sides. Here is a position you can defend:</p>
+          <ul>
+            <li><strong>Single items:</strong> lead with medians and distributions. If you also show means for comparison across many items, say so and do not over-interpret small differences such as 3.8 vs 3.9.</li>
+            <li><strong>Scale scores:</strong> means, SDs and parametric tests are standard practice, particularly with acceptable alpha and samples of about 30 or more per group. Check for floor or ceiling effects (many people at the minimum or maximum), which distort means.</li>
+            <li><strong>When in doubt:</strong> run both the parametric and non-parametric test. If they agree, report one and mention the other in a footnote. If they disagree, report both and discuss why.</li>
+          </ul>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>Data Lab in AI for Research</h3>
+            <p>For survey projects we run the numbers in <a href="https://aiforresearch.app/features/data-lab">AI for Research’s Data Lab</a>. You upload a CSV and get descriptives, charts, Cronbach’s alpha, Mann–Whitney, Wilcoxon, Kruskal–Wallis, t-tests and regression. The statistics are computed in your browser, not generated by the AI. The AI only writes up the numbers you calculated, in APA style, and each analysis exports as R, Python or SPSS code so an examiner can rerun it. For a quick check without signing in, the <a href="https://aiforresearch.app/tools/data-analysis">free data analysis tool</a> covers descriptives, correlations, t-tests and chi-square.</p>
+          </div>
+
+          <h2 id="report">Step 5: report it so a reader can check it</h2>
+          <p>A good results paragraph names the measure, the reliability, the statistic and an effect size. For example:</p>
+          <blockquote>Satisfaction with feedback (four items, α = .89) was higher among students who received written comments (M = 4.1, SD = 0.6) than among those who received grades only (M = 3.5, SD = 0.8), Welch’s t(53.8) = 3.29, p = .002, d = 0.85.</blockquote>
+          <p>(Those numbers are consistent for 30 students per group: the difference of 0.6 divided by its standard error of about 0.18 gives t ≈ 3.29, and 0.6 divided by the pooled SD of about 0.71 gives d ≈ 0.85.)</p>
+          <p>For a single item, report the median, the interquartile range or category percentages, and the non-parametric test with its effect size (for Mann–Whitney, the rank-biserial correlation or r = Z/√N). Our guide to <a href="effect-size-explained.html">effect sizes</a> explains which one to use, and <a href="p-values-confidence-intervals.html">p-values vs confidence intervals</a> covers how to word the uncertainty.</p>
+
+          <h2 id="mistakes">Common mistakes to avoid</h2>
+          <ul class="checklist">
+            <li>Forgetting to reverse-code negatively worded items before computing alpha or totals.</li>
+            <li>Coding “not applicable” as the scale midpoint.</li>
+            <li>Running a separate t-test on each of 30 items without correcting for multiple comparisons.</li>
+            <li>Building a scale from items that were never designed to go together, then reporting a low alpha as a “limitation”.</li>
+            <li>Reporting only means, so readers cannot see that responses were polarised (many 1s and 5s).</li>
+            <li>Claiming a cause from a cross-sectional survey: “students who got written comments were more satisfied” is fine; “written comments increased satisfaction” needs a design that supports it.</li>
+          </ul>
+          <p>If you are designing the questionnaire now rather than analysing it, plan the analysis at the same time. It is far easier to add a reverse-coded item or a clear midpoint label before you collect the data than to explain its absence afterwards. Our <a href="research-proposal-structure.html">research proposal guide</a> shows where the analysis plan belongs.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Is Likert scale data ordinal or interval?</summary>
+              <p>A single Likert item is ordinal: the categories are ordered but the gaps between them are not guaranteed to be equal. A scale score made by summing or averaging several reliable items is commonly treated as approximately interval, which is why t-tests and ANOVA are standard for scale scores.</p>
+            </details>
+            <details>
+              <summary>Should I use the mean or median for Likert data?</summary>
+              <p>Use the median and category percentages for single items. Use the mean and standard deviation for multi-item scale scores. If you report means for single items, say that you are doing so for comparison and avoid interpreting small differences.</p>
+            </details>
+            <details>
+              <summary>What test do I use to compare two groups on a Likert item?</summary>
+              <p>Use the Mann–Whitney U test for two independent groups and the Wilcoxon signed-rank test for the same people measured twice. For a multi-item scale score, an independent or paired t-test is usually appropriate.</p>
+            </details>
+            <details>
+              <summary>What is a good Cronbach’s alpha for a Likert scale?</summary>
+              <p>Around 0.70 is often treated as the minimum for research use and 0.80 or above as good. Values above about 0.95 can mean the items are redundant. Report alpha from your own sample, not only the value published for the questionnaire.</p>
+            </details>
+            <details>
+              <summary>Can I run a regression with Likert data?</summary>
+              <p>Yes. Use linear regression when the outcome is a multi-item scale score, and ordinal logistic regression when the outcome is a single Likert item. Likert predictors are often entered as scale scores, or as categories if there are few of them.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#item-vs-scale">Likert items and Likert scales are not the same thing</a></li>
+            <li><a href="#prepare">Step 1: prepare and code the data</a></li>
+            <li><a href="#describe">Step 2: describe single items properly</a></li>
+            <li><a href="#reliability">Step 3: check reliability before you build a scale score</a></li>
+            <li><a href="#tests">Step 4: choose the test</a></li>
+            <li><a href="#mean-debate">The “can I use the mean?” debate, settled for your project</a></li>
+            <li><a href="#report">Step 5: report it so a reader can check it</a></li>
+            <li><a href="#mistakes">Common mistakes to avoid</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Statistics</span><h3><a href="correlation-vs-regression.html">Correlation vs regression</a></h3><p>What each one tells you, with a worked example you can follow by hand.</p></div>
+          <div class="card"><span class="tag">Statistics</span><h3><a href="effect-size-explained.html">Effect size, explained</a></h3><p>Cohen’s d, r and odds ratios: what they mean and how to report them.</p></div>
+          <div class="card"><span class="tag">Workflow</span><h3><a href="reproducible-research-workflow.html">A reproducible research workflow</a></h3><p>Folders, scripts and records that let anyone rerun your analysis.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

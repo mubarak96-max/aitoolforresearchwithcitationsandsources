@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Read a Forest Plot: Squares, Lines, Diamonds and I² Explained</title>
+  <meta name="description" content="How to read a forest plot in a meta-analysis, step by step: study squares and confidence lines, the line of no effect, the pooled diamond, weights, heterogeneity (I²) and common traps.">
+  <link rel="canonical" href="/guides/how-to-read-a-forest-plot.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="How to Read a Forest Plot: Squares, Lines, Diamonds and I² Explained">
+  <meta property="og:description" content="A labelled forest plot, read element by element: squares, lines, the diamond, weights and I².">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Read a Forest Plot: Squares, Lines, Diamonds and I² Explained",
+      "description": "How to read a forest plot in a meta-analysis, step by step: study squares and confidence lines, the line of no effect, the pooled diamond, weights, heterogeneity (I²) and common traps.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/how-to-read-a-forest-plot.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reading a forest plot"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the diamond mean in a forest plot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The diamond is the pooled result of all the studies. Its centre is the combined effect estimate and its horizontal width is the combined 95% confidence interval. If the diamond does not cross the line of no effect, the pooled result is statistically significant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it mean if a line crosses 1 on a forest plot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a ratio measure such as a risk ratio or odds ratio, 1 means no effect. If a study’s confidence line crosses 1, that study on its own did not find a statistically significant effect. For difference measures, the line of no effect is at 0."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are the squares different sizes in a forest plot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each square’s size reflects the study’s weight in the meta-analysis. Larger, more precise studies with more events get more weight and therefore bigger squares."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good I² value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lower I² means more consistent studies. The Cochrane Handbook suggests 0 to 40% might not be important, 30 to 60% may be moderate, 50 to 90% may be substantial and 75 to 100% is considerable, but I² should always be read alongside the effects themselves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the x-axis on a log scale?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ratios such as odds ratios and risk ratios are symmetric on a log scale: halving and doubling sit the same distance from 1. Plotting them on a log scale makes confidence intervals look symmetric and makes effects in both directions comparable."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Reading a forest plot</nav>
+        <p class="kicker">Evidence · Meta-analysis</p>
+        <h1>How to read a forest plot in five minutes</h1>
+        <p class="lead">A forest plot packs a whole meta-analysis into one figure. Once you know the five elements, you can read the main result, its precision and whether the studies agree, before you read a word of the paper.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>8 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Each row is one study: the <strong>square</strong> is its effect estimate (bigger square = more weight) and the <strong>horizontal line</strong> is its 95% confidence interval. The <strong>vertical line</strong> marks no effect (1 for ratios, 0 for differences). The <strong>diamond</strong> at the bottom is the pooled result: its centre is the combined estimate and its width is the combined CI. If the diamond does not touch the line of no effect, the pooled result is statistically significant. Then check <strong>I²</strong> to see how much the studies disagree.
+          </div>
+
+          <h2 id="example">A labelled example</h2>
+          <p>The plot below shows four trials of a hypothetical reminder programme. The outcome is a missed appointment, so a risk ratio (RR) below 1 favours the programme. The numbers are illustrative.</p>
+          <figure style="margin:24px 0 28px">
+            <div class="table-wrap" style="padding:12px 8px">
+              <svg viewBox="0 0 680 240" role="img" aria-labelledby="fp-title fp-desc" style="width:100%;min-width:560px;color:var(--ink);font-family:var(--sans)">
+                <title id="fp-title">Forest plot of four illustrative trials</title>
+                <desc id="fp-desc">Study A risk ratio 0.70 (0.50 to 0.98); Study B 0.85 (0.65 to 1.11); Study C 0.95 (0.60 to 1.50); Study D 0.72 (0.55 to 0.94); pooled 0.80 (0.70 to 0.92). The line of no effect is at 1.</desc>
+                <g font-size="13" fill="currentColor">
+                  <text x="0" y="22" font-weight="600">Study</text>
+                  <text x="0" y="54">Trial A (2019)</text>
+                  <text x="0" y="84">Trial B (2020)</text>
+                  <text x="0" y="114">Trial C (2021)</text>
+                  <text x="0" y="144">Trial D (2023)</text>
+                  <text x="0" y="184" font-weight="600">Pooled (I² = 0%)</text>
+                </g>
+                <line x1="420" y1="34" x2="420" y2="200" stroke="currentColor" stroke-width="1"/>
+                <line x1="356" y1="34" x2="356" y2="200" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4"/>
+                <g stroke="currentColor" stroke-width="2">
+                  <line x1="220" y1="50" x2="414" y2="50"/>
+                  <line x1="296" y1="80" x2="450" y2="80"/>
+                  <line x1="273" y1="110" x2="537" y2="110"/>
+                  <line x1="248" y1="140" x2="402" y2="140"/>
+                </g>
+                <g fill="var(--accent)">
+                  <rect x="312" y="45" width="10" height="10"/>
+                  <rect x="366" y="73" width="14" height="14"/>
+                  <rect x="401.5" y="106.5" width="7" height="7"/>
+                  <rect x="319" y="134" width="12" height="12"/>
+                  <polygon points="317,180 356,171 396,180 356,189"/>
+                </g>
+                <line x1="200" y1="204" x2="640" y2="204" stroke="currentColor" stroke-width="1"/>
+                <g font-size="12" fill="currentColor" text-anchor="middle">
+                  <line x1="220" y1="204" x2="220" y2="209" stroke="currentColor"/><text x="220" y="223">0.5</text>
+                  <line x1="420" y1="204" x2="420" y2="209" stroke="currentColor"/><text x="420" y="223">1</text>
+                  <line x1="620" y1="204" x2="620" y2="209" stroke="currentColor"/><text x="620" y="223">2</text>
+                  <text x="300" y="238">← favours programme</text>
+                  <text x="540" y="238">favours usual care →</text>
+                </g>
+                <g font-size="12" fill="currentColor" text-anchor="end">
+                  <text x="680" y="54">0.70 (0.50–0.98)</text>
+                  <text x="680" y="84">0.85 (0.65–1.11)</text>
+                  <text x="680" y="114">0.95 (0.60–1.50)</text>
+                  <text x="680" y="144">0.72 (0.55–0.94)</text>
+                  <text x="680" y="184" font-weight="600">0.80 (0.70–0.92)</text>
+                </g>
+              </svg>
+            </div>
+            <figcaption class="small muted">Illustrative forest plot on a log scale. Solid vertical line: no effect (RR = 1). Dashed line: pooled estimate.</figcaption>
+          </figure>
+
+          <h2 id="elements">The five elements, one at a time</h2>
+          <h3 id="e-rows">1. Rows: one per study</h3>
+          <p>Each row is a study, usually labelled by first author and year. Many plots also show the raw numbers (events and totals per group) and each study’s weight as a percentage in extra columns.</p>
+          <h3 id="e-square">2. The square: the study’s estimate</h3>
+          <p>The centre of the square is that study’s effect estimate. Its <strong>size</strong> is proportional to the study’s weight in the meta-analysis, which mostly reflects its precision: bigger trials with more events get bigger squares. In our example, Trial B has the largest square and Trial C the smallest.</p>
+          <h3 id="e-line">3. The horizontal line: the confidence interval</h3>
+          <p>The line through the square is the study’s 95% CI. A short line means a precise estimate; a long line means an uncertain one. If a study’s line crosses the vertical line of no effect, that study on its own is not statistically significant. Trials B and C cross it; Trials A and D do not.</p>
+          <h3 id="e-null">4. The vertical line: no effect</h3>
+          <p>For <strong>ratios</strong> (risk ratio, odds ratio, hazard ratio), no effect is <strong>1</strong>. For <strong>differences</strong> (mean difference, standardised mean difference, risk difference), no effect is <strong>0</strong>. Check the axis labels to see which side favours which group, because conventions differ between reviews and outcomes: for a good outcome, such as recovery, a ratio above 1 favours the treatment.</p>
+          <p>Ratios are plotted on a <strong>log scale</strong>, so 0.5 and 2 sit the same distance from 1. That is why confidence intervals for ratios look lopsided around the square when written as numbers but symmetric on the plot.</p>
+          <h3 id="e-diamond">5. The diamond: the pooled result</h3>
+          <p>The diamond’s centre is the combined estimate and its left and right points are the combined 95% CI. Here the pooled RR is 0.80 (0.70 to 0.92): about a 20% lower risk of a missed appointment. The diamond does not touch 1, so the pooled result is statistically significant, even though two of the four trials were not significant on their own. That is the main reason meta-analyses exist: combining studies improves precision.</p>
+
+          <h2 id="heterogeneity">Heterogeneity: do the studies agree?</h2>
+          <p>Below the plot you will usually find heterogeneity statistics:</p>
+          <ul>
+            <li><strong>Chi² (Q) test and its p-value:</strong> tests whether the differences between studies are larger than chance would explain. It has low power with few studies, so a non-significant result does not prove the studies agree.</li>
+            <li><strong>I²:</strong> the percentage of variation across studies that is due to real differences rather than chance.</li>
+            <li><strong>Tau² (τ²):</strong> the estimated variance of true effects between studies, used in random-effects models.</li>
+          </ul>
+          <p>The <a href="https://training.cochrane.org/handbook/current/chapter-10">Cochrane Handbook’s chapter on meta-analysis</a> gives a rough guide to I² that most reviews use:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>I²</th><th>Rough interpretation</th></tr></thead>
+              <tbody>
+                <tr><td>0% to 40%</td><td>Might not be important</td></tr>
+                <tr><td>30% to 60%</td><td>May represent moderate heterogeneity</td></tr>
+                <tr><td>50% to 90%</td><td>May represent substantial heterogeneity</td></tr>
+                <tr><td>75% to 100%</td><td>Considerable heterogeneity</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The ranges overlap on purpose: the handbook stresses that I² should be read alongside the size and direction of effects and the CI around I² itself. You can also eyeball heterogeneity: if the confidence lines all overlap each other, studies are fairly consistent; if some lines do not overlap at all, look for an explanation.</p>
+
+          <h2 id="models">Fixed-effect vs random-effects</h2>
+          <p>A <strong>fixed-effect</strong> model assumes every study estimates the same true effect. A <strong>random-effects</strong> model assumes true effects vary between studies around an average, which is usually more realistic across different populations and settings. Random-effects models give relatively more weight to small studies and produce wider diamonds when heterogeneity is present. The methods section, or a label on the plot, will say which was used.</p>
+          <p>For the conceptual difference between pooling studies and reviewing them, the AI for Research team has a clear piece on <a href="https://aiforresearch.app/blog/systematic-review-vs-meta-analysis">systematic reviews vs meta-analyses</a>.</p>
+
+          <h2 id="subgroups">Subgroup and sensitivity plots</h2>
+          <p>Many reviews show more than one forest plot. Two variations are worth recognising:</p>
+          <ul>
+            <li><strong>Subgroup forest plots</strong> split the studies into groups, such as adults vs children or short vs long follow-up, each with its own diamond, and then report a <strong>test for subgroup differences</strong>. Judge subgroups by that test, not by whether one diamond crosses the null line and another does not. Subgroup findings are observational even when every study is a randomised trial, so treat them as hypotheses unless they were pre-specified and plausible.</li>
+            <li><strong>Sensitivity analyses</strong> repeat the meta-analysis with some studies removed (for example, those at high risk of bias) or with a different model. If the diamond barely moves, the result is robust. If it shifts across the null line, the conclusion depends on a few studies, and the review should say so.</li>
+          </ul>
+          <p>Some plots also add a <strong>prediction interval</strong>, often drawn as a line extending from the diamond. It shows the range in which the effect of a new, similar study is expected to fall. With substantial heterogeneity it can be much wider than the diamond, and even cross the null line when the pooled result does not, a useful warning that the effect varies between settings.</p>
+
+          <h2 id="traps">Six traps when reading forest plots</h2>
+          <ol>
+            <li><strong>Misreading the direction.</strong> Always read the “favours” labels under the axis before anything else.</li>
+            <li><strong>Treating the diamond as the whole story.</strong> A significant diamond built from small, high-risk-of-bias trials is weaker evidence than it looks. Check the risk of bias table; our guide to <a href="risk-of-bias-assessment.html">risk of bias assessment</a> explains how to read it.</li>
+            <li><strong>Ignoring heterogeneity.</strong> A pooled average of studies that point in opposite directions may describe no real population.</li>
+            <li><strong>Missing small-study effects.</strong> If only small studies show large benefits, suspect publication bias. A funnel plot, often shown next to the forest plot, helps here.</li>
+            <li><strong>Reading odds ratios as risk ratios.</strong> For common outcomes, an OR of 0.5 is not “half the risk”. See our <a href="effect-size-explained.html">effect size guide</a>.</li>
+            <li><strong>Forgetting the absolute effect.</strong> A 20% relative reduction means very different things for a rare and a common outcome. Good reviews report absolute effects in a summary of findings table.</li>
+          </ol>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>The Systematic Review workspace in AI for Research</h3>
+            <p>A forest plot is only as good as the review behind it. We run the review stages in <a href="https://aiforresearch.app/features/systematic-review">AI for Research’s Systematic Review workspace</a>: protocol, logged searches, two-reviewer screening with Cohen’s kappa, an extraction table, risk of bias ratings and a PRISMA 2020 diagram drawn from your decisions. It does not pool effect sizes or draw forest plots itself, so for the meta-analysis step we export the extraction table to RevMan or R.</p>
+          </div>
+
+          <h2 id="checklist">A quick reading checklist</h2>
+          <ul class="checklist">
+            <li>What is the outcome, and which side of the axis favours the intervention?</li>
+            <li>Is the measure a ratio (null = 1) or a difference (null = 0)?</li>
+            <li>Where is the diamond, how wide is it, and does it touch the null line?</li>
+            <li>Which studies carry most of the weight, and are they at low risk of bias?</li>
+            <li>What are I² and τ², and do the confidence lines overlap?</li>
+            <li>Fixed-effect or random-effects, and is there a funnel plot or a sensitivity analysis?</li>
+          </ul>
+          <p>If you are writing your own review, our comparison of <a href="systematic-review-software.html">systematic review software</a> covers the tools for each stage, and <a href="p-values-confidence-intervals.html">p-values vs confidence intervals</a> explains how to word the pooled result.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What does the diamond mean in a forest plot?</summary>
+              <p>The diamond is the pooled result of all the studies. Its centre is the combined effect estimate and its horizontal width is the combined 95% confidence interval. If the diamond does not cross the line of no effect, the pooled result is statistically significant.</p>
+            </details>
+            <details>
+              <summary>What does it mean if a line crosses 1 on a forest plot?</summary>
+              <p>For a ratio measure such as a risk ratio or odds ratio, 1 means no effect. If a study’s confidence line crosses 1, that study on its own did not find a statistically significant effect. For difference measures, the line of no effect is at 0.</p>
+            </details>
+            <details>
+              <summary>Why are the squares different sizes in a forest plot?</summary>
+              <p>Each square’s size reflects the study’s weight in the meta-analysis. Larger, more precise studies with more events get more weight and therefore bigger squares.</p>
+            </details>
+            <details>
+              <summary>What is a good I² value?</summary>
+              <p>Lower I² means more consistent studies. The Cochrane Handbook suggests 0 to 40% might not be important, 30 to 60% may be moderate, 50 to 90% may be substantial and 75 to 100% is considerable, but I² should always be read alongside the effects themselves.</p>
+            </details>
+            <details>
+              <summary>Why is the x-axis on a log scale?</summary>
+              <p>Ratios such as odds ratios and risk ratios are symmetric on a log scale: halving and doubling sit the same distance from 1. Plotting them on a log scale makes confidence intervals look symmetric and makes effects in both directions comparable.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#example">A labelled example</a></li>
+            <li><a href="#elements">The five elements, one at a time</a></li>
+            <li><a href="#heterogeneity">Heterogeneity: do the studies agree?</a></li>
+            <li><a href="#models">Fixed-effect vs random-effects</a></li>
+            <li><a href="#subgroups">Subgroup and sensitivity plots</a></li>
+            <li><a href="#traps">Six traps when reading forest plots</a></li>
+            <li><a href="#checklist">A quick reading checklist</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Evidence</span><h3><a href="risk-of-bias-assessment.html">Risk of bias assessment</a></h3><p>RoB 2, ROBINS-I and the Newcastle–Ottawa Scale, step by step.</p></div>
+          <div class="card"><span class="tag">Evidence</span><h3><a href="critical-appraisal-tools.html">Critical appraisal tools</a></h3><p>CASP, JBI, AMSTAR 2 and which checklist fits each study design.</p></div>
+          <div class="card"><span class="tag">Software</span><h3><a href="systematic-review-software.html">Systematic review software compared</a></h3><p>Screening, kappa, extraction and PRISMA: what each tool covers.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

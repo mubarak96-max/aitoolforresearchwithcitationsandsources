@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reproducible Research: A Practical Workflow for Data, Code and Writing</title>
+  <meta name="description" content="A practical reproducible research workflow: folder structure, raw data rules, scripted analysis, version control, environments, preregistration, data sharing with DOIs and FAIR principles.">
+  <link rel="canonical" href="/guides/reproducible-research-workflow.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Reproducible Research: A Practical Workflow for Data, Code and Writing">
+  <meta property="og:description" content="Folders, scripts, version control and sharing: a workflow that lets anyone rerun your analysis.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Reproducible Research: A Practical Workflow for Data, Code and Writing",
+      "description": "A practical reproducible research workflow: folder structure, raw data rules, scripted analysis, version control, environments, preregistration, data sharing with DOIs and FAIR principles.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/reproducible-research-workflow.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reproducible research"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is reproducible research?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Research is reproducible when another person can take the same data and the same code or analysis steps and obtain the same results. It is the minimum standard for checking a finding, and it is different from replication, which repeats the study with new data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between reproducibility and replicability?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reproducibility means getting the same results from the same data and analysis. Replicability means getting consistent results when the study is repeated with new data. A study can be reproducible but fail to replicate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to know programming to make my research reproducible?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It helps, but it is not essential. Menu-driven packages such as SPSS can save the syntax of what you clicked, and many tools export analyses as code. Keeping raw data unedited, documenting every step and sharing materials already make a large difference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I share my research data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use a repository that issues a persistent identifier such as a DOI, for example Zenodo, OSF, your university repository or a subject repository for your field. Check your funder’s and journal’s data policies, and share only de-identified data that your consent forms allow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the FAIR data principles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FAIR stands for Findable, Accessible, Interoperable and Reusable. In practice it means a persistent identifier and good metadata, clear access conditions, open file formats, and a licence and documentation so others can reuse the data."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Reproducible research</nav>
+        <p class="kicker">Data · Open science</p>
+        <h1>Reproducible research: a workflow you can start this week</h1>
+        <p class="lead">Six months from now, someone will ask how you got a number in Table 3. It might be an examiner, a reviewer or you. A reproducible workflow means the answer is “run this script” rather than a weekend of archaeology.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Research is <strong>reproducible</strong> when someone else can take your data and code and get the same results. To get there: keep <strong>raw data read-only</strong>; do every cleaning and analysis step in <strong>scripts</strong>, not by hand; use <strong>version control</strong>; record your <strong>software environment</strong>; write a <strong>README and data dictionary</strong>; and share data and code in a repository that gives a <strong>DOI</strong>. Start with the folder structure and the scripts; the rest builds on them.
+          </div>
+
+          <h2 id="terms">Reproducible, replicable, robust</h2>
+          <p>The words are used loosely, so it helps to pin them down. A common set of definitions, used by The Turing Way community handbook, is:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>Same data</th><th>Different data</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Same analysis</strong></td><td>Reproducible</td><td>Replicable</td></tr>
+                <tr><td><strong>Different analysis</strong></td><td>Robust</td><td>Generalisable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Reproducibility is the minimum. It does not prove a finding is true, but if your own results cannot be regenerated from your own data, nothing else can be checked. The free, community-written <a href="https://book.the-turing-way.org/">Turing Way</a> handbook covers every step below in more depth.</p>
+
+          <h2 id="folders">Step 1: a folder structure that explains itself</h2>
+          <p>Use the same layout for every project, so you and collaborators always know where things live:</p>
+          <pre><code>project-name/
+├── README.md          what this is, how to run it
+├── data/
+│   ├── raw/           original files, never edited
+│   └── processed/     created by scripts only
+├── code/
+│   ├── 01_clean.R
+│   ├── 02_analyse.R
+│   └── 03_figures.R
+├── outputs/
+│   ├── figures/
+│   └── tables/
+├── docs/              protocol, data dictionary, ethics
+└── manuscript/</code></pre>
+          <p>Number the scripts in the order they run. Anything in <code>processed/</code> or <code>outputs/</code> should be deletable and recreated by running the scripts in order. If deleting it would lose work, that work is not yet reproducible.</p>
+
+          <h2 id="raw">Step 2: treat raw data as read-only</h2>
+          <ul>
+            <li>Save the original export from your survey platform, instrument or database in <code>data/raw/</code> and never edit it. Set the files to read-only if you can.</li>
+            <li>Record where each raw file came from and when: the export date, the query used, the instrument settings.</li>
+            <li>Do every correction in code, with a comment explaining why: <code># participant 017 entered age as 250; set to missing (see notes 2026-03-02)</code>.</li>
+            <li>Keep identifiable data separate and protected, as your ethics approval requires. Share only de-identified versions.</li>
+          </ul>
+
+          <h2 id="scripts">Step 3: script every step</h2>
+          <p>Pointing and clicking in a spreadsheet or menu-driven statistics package leaves no record. Scripts are the record. Use R, Python, Stata or SPSS syntax, whichever your field uses, and follow a few habits:</p>
+          <ol>
+            <li><strong>One script, one job:</strong> cleaning, analysis and figures in separate files.</li>
+            <li><strong>Relative paths only</strong> (<code>data/raw/survey.csv</code>, not <code>C:/Users/me/Desktop/…</code>), so the project runs on any computer.</li>
+            <li><strong>Set a random seed</strong> before any step involving randomness, such as bootstrapping, multiple imputation, cross-validation or simulation.</li>
+            <li><strong>Generate tables and figures from code</strong>, then insert them into the manuscript. Never retype a number.</li>
+            <li><strong>Consider literate programming</strong> with Quarto, R Markdown or Jupyter notebooks, which mix text and code so the report regenerates when the data changes.</li>
+          </ol>
+          <div class="callout">
+            <p><strong>Already analysed in a menu-driven package?</strong> Most can show or paste the syntax for what you clicked. Save that syntax in <code>code/</code> now; it is far better than nothing.</p>
+          </div>
+
+          <h2 id="git">Step 4: use version control</h2>
+          <p>Version control (almost always <strong>Git</strong>) records every change to your code and text, with a message saying why. It replaces files named <code>analysis_final_v3_REAL.R</code>. You can see exactly what changed between the version you sent your supervisor and today, and you can go back if something breaks.</p>
+          <ul>
+            <li>Commit small, logical changes with clear messages: “Exclude incomplete responses (&lt;80% items)”.</li>
+            <li>Do not commit large raw data files or anything identifiable. List them in a <code>.gitignore</code> file.</li>
+            <li>Tag the commit used for each submission, for example <code>v1-submitted</code> and <code>v2-revision</code>, so the numbers in each version of the paper can be traced.</li>
+          </ul>
+
+          <h2 id="environment">Step 5: record the software environment</h2>
+          <p>Code that runs today may not run in two years, when packages have changed. Record what you used:</p>
+          <ul>
+            <li><strong>R:</strong> use <code>renv</code> to save package versions with the project, and include <code>sessionInfo()</code> output.</li>
+            <li><strong>Python:</strong> save a <code>requirements.txt</code> or an environment file with pinned versions.</li>
+            <li><strong>Anything else:</strong> note the software name and version in the README and the methods section.</li>
+          </ul>
+          <p>For complex pipelines, containers such as Docker capture the whole system, but for most theses a package lockfile and version notes are enough.</p>
+
+          <h2 id="document">Step 6: document for a stranger</h2>
+          <p>Write for someone who has never seen the project, because that is who future-you will be.</p>
+          <ul class="checklist">
+            <li><strong>README:</strong> what the project is, how to run the scripts in order, and what each output is.</li>
+            <li><strong>Data dictionary:</strong> every variable’s name, label, type, units, allowed values and missing-value codes.</li>
+            <li><strong>Analysis plan or protocol</strong> in <code>docs/</code>, with any changes dated and explained.</li>
+            <li><strong>Licence:</strong> state how others may reuse the code (for example MIT) and data (for example CC BY 4.0).</li>
+          </ul>
+
+          <h2 id="prereg">Step 7: preregister when it fits</h2>
+          <p>Preregistration means recording your hypotheses, design and analysis plan before you see the outcome data. It separates confirmatory tests from exploratory ones and protects you against accusations of fishing for results. Free registries include the Center for Open Science’s <a href="https://osf.io/">OSF</a> for most fields, PROSPERO for health-related systematic reviews, and clinical trial registries for trials. Deviations are fine; report them openly. Our <a href="research-proposal-structure.html">research proposal guide</a> shows how to write the analysis plan you would register.</p>
+
+          <h2 id="share">Step 8: share data and code with a DOI</h2>
+          <p>A link to a personal website breaks. A repository with a persistent identifier does not. General-purpose options include <a href="https://zenodo.org/">Zenodo</a> (run by CERN) and OSF, and many universities and fields have their own repositories. A DOI for your dataset lets others cite it, and lets you list it as a research output.</p>
+          <p>Aim for data that meets the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a>: <strong>Findable</strong> (a DOI and good metadata), <strong>Accessible</strong> (clear access conditions, even if access is restricted), <strong>Interoperable</strong> (open formats such as CSV rather than proprietary ones) and <strong>Reusable</strong> (a licence and a data dictionary). When data cannot be shared because of consent or privacy, share the code, a synthetic or minimal dataset, and the process for requesting access.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research for analysis and project records</h3>
+            <p>For straightforward analyses we use <a href="https://aiforresearch.app/features/data-lab">AI for Research’s Data Lab</a>: the statistics are computed in the browser, and every saved analysis exports as R, Python or SPSS code, which goes straight into our <code>code/</code> folder so an examiner can rerun it. Reports, drafts and analyses for each piece of work sit together in a shared <a href="https://aiforresearch.app/features/projects">project</a> with the supervisor, and the finished manuscript exports to <a href="https://aiforresearch.app/features/word-latex-export">Word, PDF or LaTeX</a> without retyping tables. The repository and the README are still ours to keep.</p>
+          </div>
+
+          <h2 id="qualitative">What about qualitative research?</h2>
+          <p>Reproducibility in the computational sense, rerunning code for the same numbers, does not translate directly to interviews and ethnography, where interpretation is the method. The underlying goal, letting others see how you got from data to findings, still applies. The equivalents are:</p>
+          <ul>
+            <li><strong>A versioned codebook</strong> with definitions, inclusion rules and an example quote for each code, dated each time it changes.</li>
+            <li><strong>An audit trail</strong>: memos recording analytic decisions, such as why two codes were merged or a theme was dropped.</li>
+            <li><strong>Raw transcripts kept unedited</strong>, with de-identified working copies, just like raw quantitative data.</li>
+            <li><strong>A reflexivity statement</strong> describing your position relative to the participants and topic.</li>
+            <li><strong>Reporting against a guideline</strong> such as COREQ or SRQR, so readers can see what was done.</li>
+          </ul>
+          <p>Sharing qualitative data is harder because of consent and re-identification risk. Plan it at the ethics stage: if participants agree, specialist archives can hold transcripts under controlled access.</p>
+
+          <h2 id="start">Where to start if you are mid-project</h2>
+          <p>You do not need to rebuild everything. In order of value:</p>
+          <ol>
+            <li>Copy your original data into <code>data/raw/</code> and stop editing it.</li>
+            <li>Turn the cleaning you did by hand into a script, even an imperfect one.</li>
+            <li>Make the script produce your main table, and check it matches the draft.</li>
+            <li>Put the folder under Git and write a ten-line README.</li>
+            <li>Before submission, run everything from scratch on a clean copy, ideally on someone else’s computer.</li>
+          </ol>
+          <p>That last check catches most problems. For the statistical side of the write-up, see our guides to <a href="p-values-confidence-intervals.html">p-values and confidence intervals</a> and <a href="effect-size-explained.html">effect sizes</a>; for planning a whole doctorate around good habits, see the <a href="phd-research-toolkit.html">PhD research toolkit</a>.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is reproducible research?</summary>
+              <p>Research is reproducible when another person can take the same data and the same code or analysis steps and obtain the same results. It is the minimum standard for checking a finding, and it is different from replication, which repeats the study with new data.</p>
+            </details>
+            <details>
+              <summary>What is the difference between reproducibility and replicability?</summary>
+              <p>Reproducibility means getting the same results from the same data and analysis. Replicability means getting consistent results when the study is repeated with new data. A study can be reproducible but fail to replicate.</p>
+            </details>
+            <details>
+              <summary>Do I need to know programming to make my research reproducible?</summary>
+              <p>It helps, but it is not essential. Menu-driven packages such as SPSS can save the syntax of what you clicked, and many tools export analyses as code. Keeping raw data unedited, documenting every step and sharing materials already make a large difference.</p>
+            </details>
+            <details>
+              <summary>Where should I share my research data?</summary>
+              <p>Use a repository that issues a persistent identifier such as a DOI, for example Zenodo, OSF, your university repository or a subject repository for your field. Check your funder’s and journal’s data policies, and share only de-identified data that your consent forms allow.</p>
+            </details>
+            <details>
+              <summary>What are the FAIR data principles?</summary>
+              <p>FAIR stands for Findable, Accessible, Interoperable and Reusable. In practice it means a persistent identifier and good metadata, clear access conditions, open file formats, and a licence and documentation so others can reuse the data.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#terms">Reproducible, replicable, robust</a></li>
+            <li><a href="#folders">Step 1: a folder structure that explains itself</a></li>
+            <li><a href="#raw">Step 2: treat raw data as read-only</a></li>
+            <li><a href="#scripts">Step 3: script every step</a></li>
+            <li><a href="#git">Step 4: use version control</a></li>
+            <li><a href="#environment">Step 5: record the software environment</a></li>
+            <li><a href="#document">Step 6: document for a stranger</a></li>
+            <li><a href="#prereg">Step 7: preregister when it fits</a></li>
+            <li><a href="#share">Step 8: share data and code with a DOI</a></li>
+            <li><a href="#qualitative">What about qualitative research?</a></li>
+            <li><a href="#start">Where to start if you are mid-project</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">PhD</span><h3><a href="phd-research-toolkit.html">The PhD research toolkit</a></h3><p>The tools each year of a doctorate needs, from reading to the viva.</p></div>
+          <div class="card"><span class="tag">Statistics</span><h3><a href="correlation-vs-regression.html">Correlation vs regression</a></h3><p>A worked example of r, R² and slope, by hand.</p></div>
+          <div class="card"><span class="tag">Surveys</span><h3><a href="likert-scale-analysis.html">How to analyze Likert scale data</a></h3><p>Coding, reliability and tests for survey data.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

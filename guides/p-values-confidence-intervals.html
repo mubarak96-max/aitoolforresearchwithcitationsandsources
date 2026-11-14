@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-Value vs Confidence Interval: What Each Means and How to Report Both</title>
+  <meta name="description" content="P-value vs confidence interval explained with worked numbers: what each one says, how they connect, common misreadings, and how to report results the way journals now expect.">
+  <link rel="canonical" href="/guides/p-values-confidence-intervals.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="P-Value vs Confidence Interval: What Each Means and How to Report Both">
+  <meta property="og:description" content="What a p-value and a confidence interval each say, how they connect, and how to report both.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "P-Value vs Confidence Interval: What Each Means and How to Report Both",
+      "description": "P-value vs confidence interval explained with worked numbers: what each one says, how they connect, common misreadings, and how to report results the way journals now expect.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/p-values-confidence-intervals.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "P-values vs confidence intervals"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between a p-value and a confidence interval?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A p-value tells you how surprising your data would be if the null hypothesis were true. A confidence interval gives a range of effect sizes compatible with your data, showing both the size of the effect and its precision. A CI contains the information of a p-value at its threshold, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If a 95% confidence interval includes zero, is the result non-significant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, for a difference: if the 95% CI includes zero, the two-sided p-value is 0.05 or greater. For ratios such as odds ratios or risk ratios, the null value is 1 instead of 0."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does p = 0.03 mean there is a 3% chance the result is due to chance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It means that if the null hypothesis were exactly true, data at least as extreme as yours would occur about 3% of the time. It does not give the probability that the null hypothesis is true or that the finding is a fluke."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I report p-values or confidence intervals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Report both. Lead with the effect estimate and its confidence interval, then give the exact p-value. Most journals and reporting guidelines now ask for estimates with confidence intervals rather than p-values alone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a wide confidence interval mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A wide interval means the estimate is imprecise: many effect sizes, from trivial to large, are compatible with the data. It usually reflects a small sample or a noisy outcome, and it is a reason to call the result inconclusive rather than negative."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / P-values vs confidence intervals</nav>
+        <p class="kicker">Data · Statistics basics</p>
+        <h1>P-value vs confidence interval: what each one tells you</h1>
+        <p class="lead">A p-value answers a narrow yes-or-no question. A confidence interval shows the size of the effect and how uncertain it is. Most journals now want both, and readers trust results more when you explain them in plain words.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            A <strong>p-value</strong> is the probability of seeing data at least as extreme as yours <em>if the null hypothesis were true</em>. It is not the probability that the null is true. A <strong>95% confidence interval</strong> is a range of effect sizes compatible with your data: if you repeated the study many times, 95% of intervals built this way would contain the true value. The two are linked: if a 95% CI for a difference excludes zero, the two-sided p-value is below 0.05. Report the estimate, the CI and the exact p-value together.
+          </div>
+
+          <h2 id="pvalue">What a p-value is, and is not</h2>
+          <p>Start with a null hypothesis, usually “no difference” or “no association”. The p-value tells you how surprising your result would be in a world where that null is exactly true. A small p-value means your data would be unusual under the null.</p>
+          <p>That is all it means. It is <strong>not</strong>:</p>
+          <ul>
+            <li>the probability that the null hypothesis is true;</li>
+            <li>the probability that your result happened “by chance”;</li>
+            <li>a measure of how large or important the effect is;</li>
+            <li>the probability that a replication would succeed.</li>
+          </ul>
+          <p>The American Statistical Association’s 2016 <a href="https://doi.org/10.1080/00031305.2016.1154108">statement on statistical significance and p-values</a> sets these points out in six principles, and is worth citing if a reviewer pushes back on how you interpret significance. For a longer list of misreadings, Greenland and colleagues’ <a href="https://doi.org/10.1007/s10654-016-0149-3">guide to misinterpretations</a> in the <em>European Journal of Epidemiology</em> covers 25 of them.</p>
+
+          <h2 id="ci">What a confidence interval is</h2>
+          <p>A confidence interval surrounds your estimate (a mean difference, a risk ratio, a correlation) with a range of plausible values. For a roughly normal estimate, a 95% CI is:</p>
+          <pre><code>estimate ± 1.96 × standard error</code></pre>
+          <p>The width tells you precision. A narrow interval means the data pin the effect down; a wide one means many effect sizes, including trivial or harmful ones, are still compatible with what you saw.</p>
+          <p>The technical meaning is about the method, not your single interval: if you repeated the study many times and built a 95% CI each time, about 95% of those intervals would contain the true value. In practice, most methodologists are comfortable with the plain reading “values inside the interval are reasonably compatible with the data; values far outside are not”.</p>
+
+          <h2 id="worked">Two worked examples</h2>
+          <p>Two trials test a new tutoring method. Both find that tutored students scored <strong>5 points higher</strong> on average.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>Trial A</th><th>Trial B</th></tr></thead>
+              <tbody>
+                <tr><td>Mean difference</td><td>5 points</td><td>5 points</td></tr>
+                <tr><td>Standard error</td><td>2</td><td>3</td></tr>
+                <tr><td>95% CI (5 ± 1.96 × SE)</td><td>1.08 to 8.92</td><td>−0.88 to 10.88</td></tr>
+                <tr><td>z = estimate ÷ SE</td><td>2.50</td><td>1.67</td></tr>
+                <tr><td>Two-sided p</td><td>0.012</td><td>0.096</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>A p-value-only reading says Trial A “worked” and Trial B “didn’t”. That is wrong. Both trials estimated exactly the same effect. Trial B is simply less precise: its interval includes zero, but it also includes effects as large as 11 points. The honest summary of Trial B is “a benefit of about 5 points is likely, but the data are also compatible with no benefit; a larger trial is needed”, not “no effect”.</p>
+          <div class="callout">
+            <p><strong>Absence of evidence is not evidence of absence.</strong> A non-significant result with a wide CI is inconclusive. Only a narrow CI centred near zero supports “no meaningful effect”, and that is best tested formally with an equivalence test or a Bayesian analysis.</p>
+          </div>
+
+          <h2 id="link">How the two connect</h2>
+          <p>For the same data and the same test, a 95% CI and a two-sided p-value at the 0.05 level always agree:</p>
+          <ul>
+            <li>If the 95% CI for a difference <strong>excludes 0</strong> (or for a ratio, excludes 1), then p &lt; 0.05.</li>
+            <li>If it <strong>includes 0</strong> (or 1), then p ≥ 0.05.</li>
+            <li>If 0 sits exactly on the edge of the interval, p is about 0.05.</li>
+          </ul>
+          <p>So the CI contains everything the p-value tells you at that threshold, plus the size and precision of the effect. That is why most reporting guidelines now ask for estimates with CIs first and p-values second.</p>
+          <p>One trap: two groups’ separate CIs can overlap even when the difference between them is significant. Overlapping error bars on a chart do not mean “no difference”. Compute the CI of the difference itself.</p>
+
+          <h2 id="choose-alpha">The 0.05 threshold, and what to do with it</h2>
+          <p>The 0.05 cut-off is a convention, not a law of nature. There is no real difference between p = 0.049 and p = 0.051. Practical advice that most reviewers will accept:</p>
+          <ol>
+            <li><strong>Report exact p-values</strong> (p = 0.012, p = 0.096), not just “p &lt; 0.05” or “ns”. Use “p &lt; 0.001” only for very small values.</li>
+            <li><strong>Pre-specify your threshold and your main outcome</strong> in your protocol or preregistration, so a reader can tell confirmatory tests from exploratory ones.</li>
+            <li><strong>Correct for multiple comparisons</strong> when you run many tests on one question (for example Holm or Benjamini–Hochberg), or clearly label the extra tests as exploratory.</li>
+            <li><strong>Interpret the interval in context.</strong> Ask what the smallest effect that would matter in practice is, then check where your interval sits relative to it.</li>
+          </ol>
+
+          <h2 id="report">How to report results</h2>
+          <p>A complete sentence gives the estimate, its CI, the test and the exact p-value, then interprets the size of the effect:</p>
+          <blockquote>Tutored students scored 5.0 points higher than controls (95% CI 1.1 to 8.9; z = 2.50, p = 0.012). The lower end of the interval is a small benefit; the upper end would be educationally important.</blockquote>
+          <p>For a non-significant result:</p>
+          <blockquote>Tutored students scored 5.0 points higher (95% CI −0.9 to 10.9; p = 0.096). The data are compatible with no benefit and with a substantial one; the trial was too small to distinguish them.</blockquote>
+          <p>If you write in biomedicine, the <a href="https://aiforresearch.app/blog/sampl-guidelines">SAMPL guidelines for reporting statistics</a> spell out exactly what to report for each type of analysis, and many journals point authors to them. Pair the CI with an effect size readers can interpret, as explained in our <a href="effect-size-explained.html">effect size guide</a>.</p>
+
+          <h2 id="bayes">Where Bayesian statistics fits</h2>
+          <p>If what you really want to say is “how much more likely is a benefit than no benefit?”, a p-value cannot answer that. Bayesian methods can. A <strong>Bayes factor</strong> compares how well two hypotheses predict your data; a <strong>credible interval</strong> gives a range that contains the effect with a stated probability, given a prior. They are increasingly common as a supplement to frequentist results, particularly for showing evidence <em>for</em> a null.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>Bayesian tests in AI for Research</h3>
+            <p>When we want a Bayes factor alongside a p-value, we use the <a href="https://aiforresearch.app/features/bayesian-statistics">Bayesian t-test calculator in AI for Research’s Data Lab</a>. It computes JZS Bayes factors for one-sample, paired and two-sample tests and a Bayesian proportion with a credible interval. The numbers are calculated in the browser, not generated by the AI, and they export to R or Python code so you can rerun them.</p>
+          </div>
+
+          <h2 id="checklist">A checklist before you submit</h2>
+          <ul class="checklist">
+            <li>Every main result has an estimate, a 95% CI and an exact p-value.</li>
+            <li>No result is described as “no effect” only because p &gt; 0.05.</li>
+            <li>The text interprets the size of the effect, not only its significance.</li>
+            <li>The number of tests is stated, and corrections or an “exploratory” label are applied.</li>
+            <li>Confirmatory outcomes match the protocol or preregistration.</li>
+            <li>Charts show CIs of the comparison that matters, not only per-group error bars.</li>
+          </ul>
+          <p>Planning the study rather than reporting it? The width of your future CI depends mainly on sample size. Our <a href="research-proposal-structure.html">proposal structure guide</a> shows where the sample size justification goes, and the forest plots in our guide to <a href="how-to-read-a-forest-plot.html">reading a forest plot</a> show what many studies’ CIs look like side by side.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is the difference between a p-value and a confidence interval?</summary>
+              <p>A p-value tells you how surprising your data would be if the null hypothesis were true. A confidence interval gives a range of effect sizes compatible with your data, showing both the size of the effect and its precision. A CI contains the information of a p-value at its threshold, and more.</p>
+            </details>
+            <details>
+              <summary>If a 95% confidence interval includes zero, is the result non-significant?</summary>
+              <p>Yes, for a difference: if the 95% CI includes zero, the two-sided p-value is 0.05 or greater. For ratios such as odds ratios or risk ratios, the null value is 1 instead of 0.</p>
+            </details>
+            <details>
+              <summary>Does p = 0.03 mean there is a 3% chance the result is due to chance?</summary>
+              <p>No. It means that if the null hypothesis were exactly true, data at least as extreme as yours would occur about 3% of the time. It does not give the probability that the null hypothesis is true or that the finding is a fluke.</p>
+            </details>
+            <details>
+              <summary>Should I report p-values or confidence intervals?</summary>
+              <p>Report both. Lead with the effect estimate and its confidence interval, then give the exact p-value. Most journals and reporting guidelines now ask for estimates with confidence intervals rather than p-values alone.</p>
+            </details>
+            <details>
+              <summary>What does a wide confidence interval mean?</summary>
+              <p>A wide interval means the estimate is imprecise: many effect sizes, from trivial to large, are compatible with the data. It usually reflects a small sample or a noisy outcome, and it is a reason to call the result inconclusive rather than negative.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#pvalue">What a p-value is, and is not</a></li>
+            <li><a href="#ci">What a confidence interval is</a></li>
+            <li><a href="#worked">Two worked examples</a></li>
+            <li><a href="#link">How the two connect</a></li>
+            <li><a href="#choose-alpha">The 0.05 threshold, and what to do with it</a></li>
+            <li><a href="#report">How to report results</a></li>
+            <li><a href="#bayes">Where Bayesian statistics fits</a></li>
+            <li><a href="#checklist">A checklist before you submit</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Statistics</span><h3><a href="effect-size-explained.html">Effect size, explained</a></h3><p>Cohen’s d, r, odds ratios and how to choose the one readers need.</p></div>
+          <div class="card"><span class="tag">Evidence</span><h3><a href="how-to-read-a-forest-plot.html">How to read a forest plot</a></h3><p>Squares, lines, diamonds and I², with a labelled example.</p></div>
+          <div class="card"><span class="tag">Statistics</span><h3><a href="correlation-vs-regression.html">Correlation vs regression</a></h3><p>What r and the slope tell you, worked by hand.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

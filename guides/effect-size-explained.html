@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Effect Size Explained: Cohen’s d, r, Odds Ratio and How to Report Them</title>
+  <meta name="description" content="Effect size explained with worked numbers: Cohen’s d, Pearson’s r, odds ratios, risk ratios and NNT, what counts as small or large, and which one to report for your design.">
+  <link rel="canonical" href="/guides/effect-size-explained.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Effect Size Explained: Cohen’s d, r, Odds Ratio and How to Report Them">
+  <meta property="og:description" content="Cohen’s d, r, odds ratios, risk ratios and NNT, worked with small numbers you can check.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Effect Size Explained: Cohen’s d, r, Odds Ratio and How to Report Them",
+      "description": "Effect size explained with worked numbers: Cohen’s d, Pearson’s r, odds ratios, risk ratios and NNT, what counts as small or large, and which one to report for your design.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/effect-size-explained.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Effect size"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good effect size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no universal answer. Cohen suggested d of 0.2, 0.5 and 0.8 as small, medium and large for the behavioural sciences, but what matters is the practical importance in your field. Compare your effect with the smallest effect that would change a decision and with typical effects in published meta-analyses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate Cohen’s d?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subtract one group mean from the other and divide by the pooled standard deviation. With equal group sizes the pooled SD is the square root of the average of the two variances. For small samples, use Hedges’ g, which applies a small-sample correction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between an odds ratio and a risk ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A risk ratio compares the probability of an outcome between groups; an odds ratio compares the odds. When the outcome is rare they are close, but when it is common the odds ratio is further from 1 and can exaggerate the effect if read as a risk ratio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to report effect sizes if my result is not significant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The effect size and its confidence interval show what the data are compatible with, and they are essential for meta-analyses. A non-significant result with a large but imprecise effect is very different from one with a precise estimate near zero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert Cohen’s d to r?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. With equal group sizes, r = d divided by the square root of (d squared plus 4). For example, d = 0.6 corresponds to r of about 0.29. State any conversions you use in your methods."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Effect size</nav>
+        <p class="kicker">Data · Statistics basics</p>
+        <h1>Effect size explained: how big is the difference, really?</h1>
+        <p class="lead">A p-value tells you whether an effect is distinguishable from zero. An effect size tells you how large it is. Readers, reviewers and meta-analysts need the second far more than the first.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            An <strong>effect size</strong> is a number that describes the magnitude of a difference or relationship. For two group means, use <strong>Cohen’s d</strong> (difference divided by the pooled SD). For relationships, use <strong>r</strong>. For binary outcomes, use a <strong>risk ratio</strong>, <strong>odds ratio</strong> or <strong>risk difference</strong>, ideally with the number needed to treat. Always report it with a confidence interval, and interpret it against what matters in your field rather than only Cohen’s “small, medium, large” labels.
+          </div>
+
+          <h2 id="why">Why effect sizes matter</h2>
+          <p>With a large enough sample, almost any difference becomes statistically significant. A study of 20,000 students might find that a new app raises exam scores with p &lt; 0.001, yet the gain is half a point out of 100. Without an effect size, readers cannot tell an important finding from a trivial one.</p>
+          <p>Effect sizes also make studies comparable. A meta-analysis cannot pool p-values from studies with different scales, but it can pool standardised effect sizes. And they are what you need to plan the next study: the expected effect size drives the sample size calculation.</p>
+          <p>For a clear, citable overview, see Sullivan and Feinn’s <a href="https://doi.org/10.4300/JGME-D-12-00156.1">“Using effect size, or why the P value is not enough”</a> and Lakens’ practical primer <a href="https://doi.org/10.3389/fpsyg.2013.00863">“Calculating and reporting effect sizes”</a> in <em>Frontiers in Psychology</em>.</p>
+
+          <h2 id="families">The two families of effect size</h2>
+          <ul>
+            <li><strong>The d family</strong> (standardised differences): Cohen’s d, Hedges’ g, Glass’s delta. Used for comparing means between groups.</li>
+            <li><strong>The r family</strong> (strength of association): Pearson’s r, R², eta squared, partial eta squared, Cramér’s V. Used for relationships and for the proportion of variance explained.</li>
+          </ul>
+          <p>Binary outcomes have their own measures: risk difference, risk ratio, odds ratio, and the number needed to treat. Unstandardised effects, such as “4.1 points per hour of study” or “a 6 mmHg drop in blood pressure”, are effect sizes too, and often the most useful when the units mean something to readers.</p>
+
+          <h2 id="cohens-d">Cohen’s d, worked through</h2>
+          <p>Cohen’s d is the difference between two means divided by the standard deviation:</p>
+          <pre><code>d = (mean₁ − mean₂) / pooled SD</code></pre>
+          <p><strong>Example 1, equal SDs.</strong> A writing course group scores a mean of 78 (SD 10); a comparison group scores 72 (SD 10). The difference is 6 points, and 6 ÷ 10 gives <strong>d = 0.60</strong>: the groups differ by six-tenths of a standard deviation.</p>
+          <p><strong>Example 2, unequal SDs.</strong> Same means, but SDs of 8 and 12, with equal group sizes. The pooled SD is √((8² + 12²) / 2) = √((64 + 144) / 2) = √104 ≈ 10.20. Then d = 6 ÷ 10.20 ≈ <strong>0.59</strong>.</p>
+          <p>With unequal group sizes, weight each variance by its degrees of freedom:</p>
+          <pre><code>pooled SD = √( ((n₁ − 1)·SD₁² + (n₂ − 1)·SD₂²) / (n₁ + n₂ − 2) )</code></pre>
+          <p>For small samples (under about 20 per group), Cohen’s d slightly overestimates the population effect. <strong>Hedges’ g</strong> applies a small correction and is the usual choice in meta-analysis.</p>
+          <h3 id="d-meaning">What d = 0.6 means in plain words</h3>
+          <p>If scores are roughly normal, d = 0.6 means the average person in the course group scores higher than about 73% of the comparison group. That kind of translation, sometimes called Cohen’s U3, helps non-specialist readers far more than the bare number.</p>
+
+          <h2 id="r">Correlation r as an effect size</h2>
+          <p>Pearson’s r is already standardised: 0 means no linear relationship and ±1 a perfect one. Squaring it gives the proportion of variance shared: r = 0.30 means r² = 0.09, or 9% of the variance. Our guide to <a href="correlation-vs-regression.html">correlation vs regression</a> works through r by hand.</p>
+          <p>You can convert between d and r when groups are of equal size: r = d / √(d² + 4). For d = 0.6, r = 0.6 / √4.36 ≈ <strong>0.29</strong>. Conversions are handy for meta-analysis but should be stated, not hidden.</p>
+
+          <h2 id="binary">Effect sizes for yes/no outcomes</h2>
+          <p>A trial gives a new reminder system to 100 patients and usual care to 100. Missed appointments: 20 in the reminder group, 30 in usual care.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Measure</th><th>Calculation</th><th>Result</th><th>Plain meaning</th></tr></thead>
+              <tbody>
+                <tr><td>Risk (reminder)</td><td>20 / 100</td><td>0.20</td><td>20% missed</td></tr>
+                <tr><td>Risk (usual care)</td><td>30 / 100</td><td>0.30</td><td>30% missed</td></tr>
+                <tr><td>Risk difference</td><td>0.30 − 0.20</td><td>0.10</td><td>10 fewer missed per 100 patients</td></tr>
+                <tr><td>Risk ratio (RR)</td><td>0.20 / 0.30</td><td>0.67</td><td>A third lower risk</td></tr>
+                <tr><td>Odds ratio (OR)</td><td>(20/80) / (30/70) = 0.25 / 0.429</td><td>0.58</td><td>Odds 42% lower</td></tr>
+                <tr><td>Number needed to treat</td><td>1 / 0.10</td><td>10</td><td>Remind 10 patients to prevent 1 missed visit</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Notice that the odds ratio (0.58) looks more impressive than the risk ratio (0.67). That gap grows as outcomes become common. Readers, and journalists, often read an odds ratio as if it were a risk ratio, so when the outcome affects more than about 10% of people, report the risk ratio or risk difference alongside it. Odds ratios remain standard in case–control studies and logistic regression, where risk ratios cannot be estimated directly.</p>
+
+          <h2 id="benchmarks">Small, medium, large: use with care</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Measure</th><th>Small</th><th>Medium</th><th>Large</th></tr></thead>
+              <tbody>
+                <tr><td>Cohen’s d</td><td>0.2</td><td>0.5</td><td>0.8</td></tr>
+                <tr><td>Pearson’s r</td><td>0.1</td><td>0.3</td><td>0.5</td></tr>
+                <tr><td>Eta squared (η²)</td><td>0.01</td><td>0.06</td><td>0.14</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Jacob Cohen proposed these as rough defaults for the behavioural sciences when nothing better was available, and he warned against using them mechanically. A “small” effect on mortality can be enormously important; a “large” effect on a lab task may mean little. Better anchors are the <strong>smallest effect that would matter in practice</strong> and the typical effects in your own field’s meta-analyses.</p>
+
+          <h2 id="which">Which effect size for which design</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Design or test</th><th>Report</th></tr></thead>
+              <tbody>
+                <tr><td>Two independent groups, t-test</td><td>Mean difference with CI, plus Cohen’s d or Hedges’ g</td></tr>
+                <tr><td>Paired / before–after</td><td>Mean change with CI, plus d based on the SD of differences (say which)</td></tr>
+                <tr><td>ANOVA</td><td>η² or partial η² (or ω², less biased), plus pairwise differences</td></tr>
+                <tr><td>Correlation</td><td>r with CI</td></tr>
+                <tr><td>Linear regression</td><td>Unstandardised slopes with CIs, R²</td></tr>
+                <tr><td>Chi-square on a table</td><td>Cramér’s V, or RR/OR for 2 × 2 tables</td></tr>
+                <tr><td>Binary outcome trial</td><td>Risk difference, RR, NNT</td></tr>
+                <tr><td>Mann–Whitney / Wilcoxon</td><td>Rank-biserial correlation, or r = Z / √N</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="power">Effect size and sample size</h2>
+          <p>Planning a study runs the logic backwards: choose the smallest effect worth detecting, the significance level and the power you want, then compute the sample size. For a two-group comparison at α = 0.05 and 80% power, detecting d = 0.5 needs about 64 people per group; detecting d = 0.2 needs about 394 per group. Halving the effect roughly quadruples the sample. The AI for Research team explains the trade-offs in its guide to <a href="https://aiforresearch.app/blog/statistical-power-and-sample-size">statistical power and sample size</a>.</p>
+          <div class="callout warn">
+            <p><strong>Beware of “observed power”.</strong> Calculating power after the study from the effect you found adds nothing beyond the p-value. Justify sample size before data collection, and after it, report the CI.</p>
+          </div>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research Data Lab</h3>
+            <p>In <a href="https://aiforresearch.app/features/data-lab">Data Lab</a>, each test reports its effect size next to the statistic, and the sample size calculator covers t-tests, two proportions, prevalence surveys, correlations and diagnostic accuracy. The statistics are computed in the browser rather than by the AI, and the APA write-up it drafts uses only the numbers you calculated.</p>
+          </div>
+
+          <h2 id="report">How to report an effect size</h2>
+          <ul class="checklist">
+            <li>Name the measure (d, g, r, RR, OR) and how it was calculated, including which SD you standardised by.</li>
+            <li>Give a 95% confidence interval for it.</li>
+            <li>Report the raw difference in real units too, when the units mean something.</li>
+            <li>Interpret it against a practical benchmark, not only Cohen’s labels.</li>
+            <li>For binary outcomes, give absolute numbers (risk difference or NNT), not only ratios.</li>
+          </ul>
+          <p>Example: “The course group scored 6.0 points higher (95% CI 2.1 to 9.9), d = 0.60 (95% CI 0.20 to 1.00), with 50 students per group.” Then add one sentence on what that size of gain means for your readers, such as how it compares with gains reported for similar courses. For the CI side of that sentence, see our guide to <a href="p-values-confidence-intervals.html">p-values and confidence intervals</a>; for how effects are combined across studies, see <a href="how-to-read-a-forest-plot.html">how to read a forest plot</a>.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is a good effect size?</summary>
+              <p>There is no universal answer. Cohen suggested d of 0.2, 0.5 and 0.8 as small, medium and large for the behavioural sciences, but what matters is the practical importance in your field. Compare your effect with the smallest effect that would change a decision and with typical effects in published meta-analyses.</p>
+            </details>
+            <details>
+              <summary>How do I calculate Cohen’s d?</summary>
+              <p>Subtract one group mean from the other and divide by the pooled standard deviation. With equal group sizes the pooled SD is the square root of the average of the two variances. For small samples, use Hedges’ g, which applies a small-sample correction.</p>
+            </details>
+            <details>
+              <summary>What is the difference between an odds ratio and a risk ratio?</summary>
+              <p>A risk ratio compares the probability of an outcome between groups; an odds ratio compares the odds. When the outcome is rare they are close, but when it is common the odds ratio is further from 1 and can exaggerate the effect if read as a risk ratio.</p>
+            </details>
+            <details>
+              <summary>Do I need to report effect sizes if my result is not significant?</summary>
+              <p>Yes. The effect size and its confidence interval show what the data are compatible with, and they are essential for meta-analyses. A non-significant result with a large but imprecise effect is very different from one with a precise estimate near zero.</p>
+            </details>
+            <details>
+              <summary>Can I convert Cohen’s d to r?</summary>
+              <p>Yes. With equal group sizes, r = d divided by the square root of (d squared plus 4). For example, d = 0.6 corresponds to r of about 0.29. State any conversions you use in your methods.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#why">Why effect sizes matter</a></li>
+            <li><a href="#families">The two families of effect size</a></li>
+            <li><a href="#cohens-d">Cohen’s d, worked through</a></li>
+            <li><a href="#r">Correlation r as an effect size</a></li>
+            <li><a href="#binary">Effect sizes for yes/no outcomes</a></li>
+            <li><a href="#benchmarks">Small, medium, large: use with care</a></li>
+            <li><a href="#which">Which effect size for which design</a></li>
+            <li><a href="#power">Effect size and sample size</a></li>
+            <li><a href="#report">How to report an effect size</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Statistics</span><h3><a href="p-values-confidence-intervals.html">P-values vs confidence intervals</a></h3><p>How to report uncertainty without overstating your results.</p></div>
+          <div class="card"><span class="tag">Evidence</span><h3><a href="how-to-read-a-forest-plot.html">How to read a forest plot</a></h3><p>How effect sizes from many studies are pooled and displayed.</p></div>
+          <div class="card"><span class="tag">Surveys</span><h3><a href="likert-scale-analysis.html">How to analyze Likert scale data</a></h3><p>The right tests and effect sizes for survey items and scales.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

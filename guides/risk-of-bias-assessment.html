@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Risk of Bias Assessment: RoB 2, ROBINS-I, QUADAS-2 and NOS Explained</title>
+  <meta name="description" content="How to do a risk of bias assessment for a systematic review: the RoB 2 domains for trials, ROBINS-I for non-randomised studies, QUADAS-2, the Newcastle–Ottawa Scale, and how to report it.">
+  <link rel="canonical" href="/guides/risk-of-bias-assessment.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Risk of Bias Assessment: RoB 2, ROBINS-I, QUADAS-2 and NOS Explained">
+  <meta property="og:description" content="The domains of RoB 2, ROBINS-I, QUADAS-2 and the Newcastle–Ottawa Scale, and how to apply and report them.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Risk of Bias Assessment: RoB 2, ROBINS-I, QUADAS-2 and NOS Explained",
+      "description": "How to do a risk of bias assessment for a systematic review: the RoB 2 domains for trials, ROBINS-I for non-randomised studies, QUADAS-2, the Newcastle–Ottawa Scale, and how to report it.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/risk-of-bias-assessment.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Risk of bias assessment"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a risk of bias assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a structured judgement of how likely a study result is to be systematically wrong because of flaws in design, conduct, analysis or reporting. Systematic reviews use formal tools such as RoB 2 or ROBINS-I so the judgements are transparent and repeatable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the five domains of RoB 2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bias arising from the randomisation process, bias due to deviations from intended interventions, bias due to missing outcome data, bias in measurement of the outcome, and bias in selection of the reported result. Each is judged as low risk, some concerns or high risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I use ROBINS-I instead of RoB 2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use RoB 2 for randomised trials, including cluster and crossover trials, which have their own variants. Use ROBINS-I for non-randomised studies of interventions, such as cohort studies comparing treated and untreated groups. For studies of exposures rather than interventions, use ROBINS-E."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Newcastle–Ottawa Scale still acceptable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is still widely used for cohort and case–control studies, but it has been criticised for vague criteria and low agreement between reviewers. Many methodologists prefer ROBINS-I or ROBINS-E. If you use NOS, report stars per domain and justify each one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many reviewers are needed for risk of bias?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At least two reviewers should assess each study independently and then resolve disagreements by discussion or with a third reviewer. Most reporting guidelines and journals expect this for systematic reviews."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Risk of bias assessment</nav>
+        <p class="kicker">Evidence · Systematic reviews</p>
+        <h1>Risk of bias assessment: a practical guide to the main tools</h1>
+        <p class="lead">Risk of bias assessment asks one question of each result in your review: how likely is it to be systematically wrong? The answer decides how much weight a study gets in your conclusions, so the method has to be transparent and repeatable.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Use <strong>RoB 2</strong> for randomised trials (five domains, rated low risk, some concerns or high risk), <strong>ROBINS-I</strong> for non-randomised studies of interventions (seven domains, rated from low to critical), <strong>QUADAS-2</strong> for diagnostic accuracy studies, and the <strong>Newcastle–Ottawa Scale</strong> where a simpler tool for cohort and case–control studies is accepted. Assess each outcome, not just each paper; have two reviewers judge independently; record the reason for each judgement; and show results in a traffic-light table.
+          </div>
+
+          <h2 id="what">What “risk of bias” means</h2>
+          <p><strong>Bias</strong> is a systematic error: a flaw in design, conduct or analysis that pushes a result away from the truth in a consistent direction. It is different from <strong>imprecision</strong>, which is random error and shows up as a wide confidence interval. A huge trial can be precisely wrong.</p>
+          <p>We talk about the <em>risk</em> of bias because we usually cannot measure the bias itself. We can only judge whether a study’s methods leave room for it. That is also why risk of bias is not the same as reporting quality: a study can describe its methods beautifully and still have flawed randomisation. See our overview of <a href="critical-appraisal-tools.html">critical appraisal tools</a> for how the different kinds of checklist fit together.</p>
+          <p>The authoritative source for the methods below is the <a href="https://training.cochrane.org/handbook/current/chapter-08">Cochrane Handbook chapter on assessing risk of bias in randomised trials</a>. The official versions of RoB 2, ROBINS-I and related tools, with guidance documents, are on <a href="https://www.riskofbias.info/">riskofbias.info</a>.</p>
+
+          <h2 id="rob2">RoB 2 for randomised trials</h2>
+          <p>RoB 2 is Cochrane’s tool for randomised trials, replacing the original Cochrane risk of bias tool. It assesses a specific <strong>result</strong> (an outcome at a time point) across five domains:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Domain</th><th>What it asks</th><th>Example of a problem</th></tr></thead>
+              <tbody>
+                <tr><td>1. Randomisation process</td><td>Was the sequence random and concealed until assignment? Are baseline differences compatible with chance?</td><td>Allocation by date of birth; envelopes that could be opened early</td></tr>
+                <tr><td>2. Deviations from intended interventions</td><td>Did participants or carers know the assignment, and did that change what they received? Was the analysis appropriate?</td><td>Unblinded staff giving extra care to the treatment group</td></tr>
+                <tr><td>3. Missing outcome data</td><td>Were outcome data available for nearly all participants, and could missingness depend on the true outcome?</td><td>30% drop-out, higher in the control arm, with no sensitivity analysis</td></tr>
+                <tr><td>4. Measurement of the outcome</td><td>Was the measurement appropriate and the same across groups? Could knowing the assignment influence it?</td><td>Unblinded assessors rating a subjective outcome</td></tr>
+                <tr><td>5. Selection of the reported result</td><td>Was the reported result chosen from several measurements or analyses?</td><td>A different primary outcome from the registered protocol</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Each domain is answered through <strong>signalling questions</strong> (yes, probably yes, probably no, no, no information), and an algorithm proposes a judgement of <strong>low risk</strong>, <strong>some concerns</strong> or <strong>high risk</strong>. You can override the proposal with a stated reason. The overall judgement for the result is usually the worst domain: one high-risk domain makes the result high risk overall, and several “some concerns” can also add up to high risk.</p>
+          <h3 id="rob2-effect">Decide the effect of interest first</h3>
+          <p>Domain 2 depends on whether you are interested in the effect of <strong>assignment</strong> to the intervention (intention-to-treat) or of <strong>adhering</strong> to it (per-protocol). Decide this in your protocol, because the same trial can be judged differently for each.</p>
+
+          <h2 id="robins">ROBINS-I for non-randomised studies</h2>
+          <p>ROBINS-I (Risk Of Bias In Non-randomised Studies of Interventions) compares each study with an imagined <strong>target trial</strong>: the ideal randomised trial that would answer the same question. It has seven domains:</p>
+          <ol>
+            <li>Confounding</li>
+            <li>Selection of participants into the study</li>
+            <li>Classification of interventions</li>
+            <li>Deviations from intended interventions</li>
+            <li>Missing data</li>
+            <li>Measurement of outcomes</li>
+            <li>Selection of the reported result</li>
+          </ol>
+          <p>Judgements run from <strong>low</strong>, <strong>moderate</strong> and <strong>serious</strong> to <strong>critical</strong> risk, plus “no information”. A low rating means the study is comparable to a well-performed randomised trial in that domain, so most observational studies end up moderate or worse; that is expected, not a failure of the tool. Before you start, list the important confounders for your question in the protocol, with clinical or subject-expert input, because the confounding domain is judged against that list. The developers have released an updated version (ROBINS-I V2), so check <a href="https://www.riskofbias.info/">riskofbias.info</a> for the current form. There is also ROBINS-E for studies of exposures rather than interventions.</p>
+
+          <h2 id="quadas">QUADAS-2 for diagnostic accuracy studies</h2>
+          <p>QUADAS-2 covers four domains: <strong>patient selection</strong>, the <strong>index test</strong>, the <strong>reference standard</strong>, and <strong>flow and timing</strong>. Each is rated for risk of bias, and the first three also for <strong>applicability concerns</strong> (whether the study matches your review question). Typical problems include case–control sampling of patients with obvious disease, interpreting the index test with knowledge of the reference result, and not giving every patient the same reference standard.</p>
+
+          <h2 id="nos">The Newcastle–Ottawa Scale</h2>
+          <p>The Newcastle–Ottawa Scale (NOS) is a simpler tool for cohort and case–control studies that awards stars in three areas: <strong>selection</strong> (up to 4 stars), <strong>comparability</strong> (up to 2) and <strong>outcome</strong> for cohorts or <strong>exposure</strong> for case–control studies (up to 3), for a maximum of 9. It is quick and still widely used, but it has been criticised for vague criteria and poor agreement between reviewers, and the star total invites exactly the kind of summing that methodologists warn against. If your review will be judged by methodologists, ROBINS-I or ROBINS-E is the more defensible choice for intervention or exposure questions; if you use NOS, report the stars per domain, not only the total.</p>
+
+          <h2 id="process">The process, step by step</h2>
+          <ol>
+            <li><strong>Pre-specify</strong> the tool, the outcomes and the effect of interest in your protocol.</li>
+            <li><strong>Pilot</strong> the tool on two or three studies with your co-reviewer and agree on how you will interpret unclear signalling questions.</li>
+            <li><strong>Assess independently.</strong> Two reviewers judge each result without seeing each other’s answers.</li>
+            <li><strong>Record the evidence</strong> for every judgement: a quote or page number from the paper, protocol or trial registry.</li>
+            <li><strong>Resolve disagreements</strong> by discussion, with a third reviewer if needed. Report how often you disagreed.</li>
+            <li><strong>Check the trial registration and protocol</strong> for the reported-result domain. Registered outcomes that vanish from the paper are a red flag.</li>
+            <li><strong>Use the results</strong>: in sensitivity analyses (excluding high-risk studies), in subgroup comparisons, and in a GRADE certainty rating for each outcome.</li>
+          </ol>
+          <div class="callout">
+            <p><strong>Contact authors for missing information.</strong> “No information” about allocation concealment is common. A short email to the corresponding author often resolves it, and reviewers will see you made the effort.</p>
+          </div>
+
+          <h2 id="report">How to report and display it</h2>
+          <p>Reviews usually show two figures:</p>
+          <ul>
+            <li>A <strong>traffic-light plot</strong>: one row per study, one column per domain, with green, yellow and red symbols, plus an overall column.</li>
+            <li>A <strong>summary bar plot</strong>: for each domain, the percentage of studies (or of study weight) at each level of risk.</li>
+          </ul>
+          <p>The free robvis tool linked from <a href="https://www.riskofbias.info/">riskofbias.info</a> draws both from a spreadsheet. In the text, summarise the main concerns (“most trials were at some concerns for outcome measurement because assessors were not blinded”), and explain how risk of bias changed your conclusions. Place the per-study judgements, with reasons, in a supplementary table. For how a pooled result relates to these judgements, see <a href="how-to-read-a-forest-plot.html">how to read a forest plot</a>.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>The Systematic Review workspace in AI for Research</h3>
+            <p>We keep screening, extraction and risk of bias judgements together in <a href="https://aiforresearch.app/features/systematic-review">AI for Research’s Systematic Review workspace</a>. Its built-in risk of bias fields are deliberately simple (randomisation, allocation concealment and blinding, each rated low, some concerns, high, unclear or not applicable), so for a full RoB 2 or ROBINS-I assessment we use the official forms and record the result alongside. Before submission, its <a href="https://aiforresearch.app/features/reporting-guideline-checker">reporting guideline checker</a> checks the manuscript item by item and quotes the passage that reports each one.</p>
+          </div>
+
+          <h2 id="mistakes">Common mistakes</h2>
+          <ul class="checklist">
+            <li>Assessing each paper once, when different outcomes in the same trial can have different risks of bias.</li>
+            <li>Confusing blinding of participants with blinding of outcome assessors.</li>
+            <li>Treating “no information” as “low risk”.</li>
+            <li>Rating risk of bias but never using it in the analysis or conclusions.</li>
+            <li>Using one reviewer, or two reviewers who confer before judging.</li>
+            <li>Reporting a NOS total of “7 stars” without the domain breakdown.</li>
+          </ul>
+          <p>Choosing software for the rest of the review? Our <a href="systematic-review-software.html">systematic review software comparison</a> covers screening, kappa and PRISMA, and the <a href="ai-literature-review-workflow.html">AI literature review workflow</a> shows where risk of bias fits in a less formal review.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is a risk of bias assessment?</summary>
+              <p>It is a structured judgement of how likely a study result is to be systematically wrong because of flaws in design, conduct, analysis or reporting. Systematic reviews use formal tools such as RoB 2 or ROBINS-I so the judgements are transparent and repeatable.</p>
+            </details>
+            <details>
+              <summary>What are the five domains of RoB 2?</summary>
+              <p>Bias arising from the randomisation process, bias due to deviations from intended interventions, bias due to missing outcome data, bias in measurement of the outcome, and bias in selection of the reported result. Each is judged as low risk, some concerns or high risk.</p>
+            </details>
+            <details>
+              <summary>When should I use ROBINS-I instead of RoB 2?</summary>
+              <p>Use RoB 2 for randomised trials, including cluster and crossover trials, which have their own variants. Use ROBINS-I for non-randomised studies of interventions, such as cohort studies comparing treated and untreated groups. For studies of exposures rather than interventions, use ROBINS-E.</p>
+            </details>
+            <details>
+              <summary>Is the Newcastle–Ottawa Scale still acceptable?</summary>
+              <p>It is still widely used for cohort and case–control studies, but it has been criticised for vague criteria and low agreement between reviewers. Many methodologists prefer ROBINS-I or ROBINS-E. If you use NOS, report stars per domain and justify each one.</p>
+            </details>
+            <details>
+              <summary>How many reviewers are needed for risk of bias?</summary>
+              <p>At least two reviewers should assess each study independently and then resolve disagreements by discussion or with a third reviewer. Most reporting guidelines and journals expect this for systematic reviews.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#what">What “risk of bias” means</a></li>
+            <li><a href="#rob2">RoB 2 for randomised trials</a></li>
+            <li><a href="#robins">ROBINS-I for non-randomised studies</a></li>
+            <li><a href="#quadas">QUADAS-2 for diagnostic accuracy studies</a></li>
+            <li><a href="#nos">The Newcastle–Ottawa Scale</a></li>
+            <li><a href="#process">The process, step by step</a></li>
+            <li><a href="#report">How to report and display it</a></li>
+            <li><a href="#mistakes">Common mistakes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Evidence</span><h3><a href="critical-appraisal-tools.html">Critical appraisal tools</a></h3><p>CASP, JBI, AMSTAR 2 and MMAT, matched to each study design.</p></div>
+          <div class="card"><span class="tag">Evidence</span><h3><a href="how-to-read-a-forest-plot.html">How to read a forest plot</a></h3><p>Squares, diamonds and I², read element by element.</p></div>
+          <div class="card"><span class="tag">Software</span><h3><a href="systematic-review-software.html">Systematic review software compared</a></h3><p>Which tools handle screening, kappa, extraction and PRISMA.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

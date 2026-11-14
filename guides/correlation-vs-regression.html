@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correlation vs Regression: Differences, a Worked Example and When to Use Each</title>
+  <meta name="description" content="Correlation vs regression explained with one dataset worked by hand: what r, R², slope and intercept mean, when to use each, and the mistakes that mislead readers.">
+  <link rel="canonical" href="/guides/correlation-vs-regression.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Correlation vs Regression: Differences, a Worked Example and When to Use Each">
+  <meta property="og:description" content="One small dataset, worked by hand: Pearson’s r, R², slope and intercept, and when to use which.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Correlation vs Regression: Differences, a Worked Example and When to Use Each",
+      "description": "Correlation vs regression explained with one dataset worked by hand: what r, R², slope and intercept mean, when to use each, and the mistakes that mislead readers.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/correlation-vs-regression.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Correlation vs regression"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the main difference between correlation and regression?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Correlation gives one number, from −1 to +1, describing how strongly two variables move together, and treats them the same way. Regression fits an equation predicting an outcome from one or more predictors and gives the change in the outcome per unit of each predictor, in real units."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is R squared the same as the correlation coefficient?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In simple linear regression with one predictor, R² equals the square of Pearson’s r. With several predictors, R² is the square of the correlation between the observed outcome and the values the model predicts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can regression prove causation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Regression estimates association, adjusted for whatever variables you include. A causal interpretation needs a design that supports it, such as randomisation, or a clearly argued causal model with the right confounders measured and adjusted for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I use Spearman instead of Pearson correlation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use Spearman’s rho when the data are ordinal, when the relationship is monotonic but curved, or when outliers would distort Pearson’s r. Use Pearson for linear relationships between continuous variables without extreme outliers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need correlation before running a regression?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily, but a correlation matrix is a useful first look. It shows which predictors relate to the outcome and whether any predictors are so strongly related to each other that the regression coefficients will be unstable."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Correlation vs regression</nav>
+        <p class="kicker">Data · Statistics basics</p>
+        <h1>Correlation vs regression: what each one actually tells you</h1>
+        <p class="lead">Both describe how two variables move together, and both come from the same sums. But they answer different questions, and choosing the wrong one leads to claims your data cannot support.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            <strong>Correlation</strong> measures how strongly two variables move together, on a scale from −1 to +1, and treats them symmetrically. <strong>Regression</strong> fits an equation that predicts one variable (the outcome) from one or more others (predictors), and tells you how much the outcome changes per unit of the predictor. Use correlation to describe association; use regression to predict, to estimate the size of an effect in real units, or to adjust for other variables. Neither proves causation on its own.
+          </div>
+
+          <h2 id="difference">The core difference in one table</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>Correlation</th><th>Regression</th></tr></thead>
+              <tbody>
+                <tr><td>Question</td><td>How strongly are X and Y related?</td><td>How much does Y change when X changes, and what Y do we predict?</td></tr>
+                <tr><td>Roles of variables</td><td>Symmetric: r(X, Y) = r(Y, X)</td><td>Asymmetric: outcome vs predictor(s)</td></tr>
+                <tr><td>Main output</td><td>r, from −1 to +1</td><td>An equation: Y = a + bX, plus R²</td></tr>
+                <tr><td>Units</td><td>None (standardised)</td><td>Slope in outcome units per predictor unit</td></tr>
+                <tr><td>More than two variables?</td><td>Pairwise only (or partial correlation)</td><td>Yes: multiple regression adjusts for other predictors</td></tr>
+                <tr><td>Typical sentence</td><td>“Study time was strongly correlated with score, r = .99.”</td><td>“Each extra hour of study predicted 4.1 more points.”</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="worked">A worked example you can follow by hand</h2>
+          <p>Five students recorded hours of study and their exam score:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Student</th><th>Hours (X)</th><th>Score (Y)</th><th>X − mean</th><th>Y − mean</th><th>Product</th></tr></thead>
+              <tbody>
+                <tr><td>A</td><td>1</td><td>52</td><td>−2</td><td>−8</td><td>16</td></tr>
+                <tr><td>B</td><td>2</td><td>55</td><td>−1</td><td>−5</td><td>5</td></tr>
+                <tr><td>C</td><td>3</td><td>61</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>D</td><td>4</td><td>64</td><td>1</td><td>4</td><td>4</td></tr>
+                <tr><td>E</td><td>5</td><td>68</td><td>2</td><td>8</td><td>16</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The means are 3 hours and 60 points. From the deviations:</p>
+          <ul>
+            <li>Sum of products, S<sub>xy</sub> = 16 + 5 + 0 + 4 + 16 = <strong>41</strong></li>
+            <li>Sum of squared X deviations, S<sub>xx</sub> = 4 + 1 + 0 + 1 + 4 = <strong>10</strong></li>
+            <li>Sum of squared Y deviations, S<sub>yy</sub> = 64 + 25 + 1 + 16 + 64 = <strong>170</strong></li>
+          </ul>
+          <h3 id="worked-r">The correlation</h3>
+          <pre><code>r = Sxy / √(Sxx × Syy) = 41 / √(10 × 170) = 41 / 41.23 ≈ 0.994</code></pre>
+          <p>An r of 0.994 says the points lie almost on a straight upward line. It says nothing about <em>how many points</em> an hour is worth.</p>
+          <h3 id="worked-reg">The regression</h3>
+          <pre><code>slope b     = Sxy / Sxx = 41 / 10 = 4.1
+intercept a = mean(Y) − b × mean(X) = 60 − 4.1 × 3 = 47.7
+prediction  Y = 47.7 + 4.1 × hours</code></pre>
+          <p>Now we have a number in real units: each extra hour is associated with <strong>4.1 more points</strong>. A student studying 6 hours would be predicted to score 47.7 + 24.6 = 72.3. The intercept, 47.7, is the predicted score at zero hours, which lies outside our data (1 to 5 hours), so we should not lean on it.</p>
+          <h3 id="worked-r2">How they connect</h3>
+          <p>In simple regression with one predictor, R² is just r squared: 0.994² ≈ <strong>0.99</strong>. About 99% of the variation in scores is accounted for by the straight line. Real data is never this tidy; we chose clean numbers so the arithmetic is easy to check.</p>
+          <p>Notice also that the slope equals r × (SD of Y ÷ SD of X). That is why correlation and slope always share the same sign, but a strong correlation can go with a small slope and a weak correlation with a large one.</p>
+
+          <h2 id="when">When to use which</h2>
+          <h3 id="use-corr">Use correlation when…</h3>
+          <ul>
+            <li>You want to describe whether two measures go together, with no clear outcome, such as two questionnaire scales.</li>
+            <li>You are checking an assumption, such as whether two predictors are so related that they will cause problems in a regression.</li>
+            <li>You are reporting a correlation matrix for many variables at the start of a results section.</li>
+          </ul>
+          <h3 id="use-reg">Use regression when…</h3>
+          <ul>
+            <li>One variable is clearly the outcome and you want its expected change per unit of a predictor.</li>
+            <li>You need to adjust for confounders, such as estimating the link between study time and score while holding prior grades constant.</li>
+            <li>You want predictions, with prediction intervals, for new cases.</li>
+            <li>The outcome is binary (pass/fail) or a count: use logistic or Poisson regression, which correlation cannot do.</li>
+          </ul>
+
+          <h2 id="pearson-spearman">Pearson, Spearman and which correlation to report</h2>
+          <p><strong>Pearson’s r</strong> measures linear association between two continuous variables and is sensitive to outliers. <strong>Spearman’s rho</strong> correlates the ranks instead, so it captures any monotonic relationship (always rising or always falling, even if curved) and suits ordinal data such as single Likert items. If a scatterplot shows a curve that keeps rising, Spearman will be higher than Pearson. For Likert data specifically, see our guide to <a href="likert-scale-analysis.html">analysing Likert scales</a>.</p>
+          <p>Rough labels such as 0.1 “small”, 0.3 “medium” and 0.5 “large” come from Cohen’s conventions for the behavioural sciences. They are a starting point, not a rule; in some fields an r of 0.2 is important. Our <a href="effect-size-explained.html">effect size guide</a> covers this in more depth.</p>
+
+          <h2 id="multiple">Going further: multiple regression and partial correlation</h2>
+          <p>Real questions rarely involve two variables. Suppose students who study more also had higher grades last year. Is the 4.1 points per hour about study time, or about prior ability? <strong>Multiple regression</strong> answers this by fitting several predictors at once:</p>
+          <pre><code>score = a + b₁ × hours + b₂ × prior grade</code></pre>
+          <p>Now b₁ is the expected change in score per extra hour <em>for students with the same prior grade</em>. If b₁ drops from 4.1 to 1.5 once prior grade is added, much of the original association was explained by prior ability. The correlation-side equivalent is the <strong>partial correlation</strong>: the correlation between hours and score after removing the part of each that is explained by prior grade.</p>
+          <p>Two cautions. Adding predictors only adjusts for what you measured, so unmeasured confounders can still bias b₁. And predictors that are strongly correlated with each other (multicollinearity) make individual slopes unstable, with large standard errors, even when the model as a whole predicts well. Check the correlations between predictors, or variance inflation factors, before interpreting each slope.</p>
+
+          <h2 id="mistakes">Five mistakes that mislead readers</h2>
+          <ol>
+            <li><strong>Not plotting the data.</strong> The four datasets in <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s quartet</a> share nearly the same r, slope and intercept, yet one is a curve, one is driven by a single outlier and one is a vertical stack of points. Always look at the scatterplot first.</li>
+            <li><strong>Reading causation into either one.</strong> Regression is not more “causal” than correlation. Causal claims come from the design (randomisation, or careful adjustment with a stated causal model), not the statistic.</li>
+            <li><strong>Extrapolating.</strong> Our line predicts 72.3 at 6 hours. At 20 hours it predicts 129.7 on a 100-point exam. The model only describes the range you observed.</li>
+            <li><strong>Confusing a significant r with a strong one.</strong> With 2,000 participants, r = 0.05 can be statistically significant while explaining a quarter of one percent of the variation.</li>
+            <li><strong>Ignoring residuals.</strong> After a regression, plot residuals against fitted values. A curve or a funnel shape means the straight line or the constant-variance assumption is wrong.</li>
+          </ol>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research Data Lab</h3>
+            <p><a href="https://aiforresearch.app/features/data-lab">Data Lab</a> runs Pearson and Spearman correlations and linear and logistic regression on an uploaded CSV, draws the scatterplot, and writes an APA-style results paragraph from the computed numbers. Its interpretation section is written not to claim causation from correlations, which saves an awkward conversation with a reviewer. Each analysis exports as R, Python or SPSS code. If you are not sure which test applies, start with the team’s <a href="https://aiforresearch.app/blog/which-statistical-test-to-use">guide to choosing a statistical test</a>.</p>
+          </div>
+
+          <h2 id="report">How to report each one</h2>
+          <p><strong>Correlation:</strong> give the coefficient, the sample size or degrees of freedom, the p-value and ideally a confidence interval: “Hours of study and exam score were strongly correlated, r(3) = .99, p &lt; .001.” With five data points, also say plainly that the sample is tiny.</p>
+          <p><strong>Regression:</strong> give the slope with its confidence interval and units, R², and the model’s overall test. In multiple regression, list every predictor so readers know what was adjusted for. A table with each coefficient, its standard error, 95% CI and p-value is the clearest format. The free textbook <a href="https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one">Statistics at Square One</a> from <em>The BMJ</em> has short chapters on both methods if you want a citable reference.</p>
+          <p>Finally, describe the uncertainty, not only the estimate. A slope of 4.1 points per hour with a 95% CI of 0.5 to 7.7 tells a very different story from one with a CI of 3.9 to 4.3. Our guide to <a href="p-values-confidence-intervals.html">p-values and confidence intervals</a> explains how to word that.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is the main difference between correlation and regression?</summary>
+              <p>Correlation gives one number, from −1 to +1, describing how strongly two variables move together, and treats them the same way. Regression fits an equation predicting an outcome from one or more predictors and gives the change in the outcome per unit of each predictor, in real units.</p>
+            </details>
+            <details>
+              <summary>Is R squared the same as the correlation coefficient?</summary>
+              <p>In simple linear regression with one predictor, R² equals the square of Pearson’s r. With several predictors, R² is the square of the correlation between the observed outcome and the values the model predicts.</p>
+            </details>
+            <details>
+              <summary>Can regression prove causation?</summary>
+              <p>No. Regression estimates association, adjusted for whatever variables you include. A causal interpretation needs a design that supports it, such as randomisation, or a clearly argued causal model with the right confounders measured and adjusted for.</p>
+            </details>
+            <details>
+              <summary>When should I use Spearman instead of Pearson correlation?</summary>
+              <p>Use Spearman’s rho when the data are ordinal, when the relationship is monotonic but curved, or when outliers would distort Pearson’s r. Use Pearson for linear relationships between continuous variables without extreme outliers.</p>
+            </details>
+            <details>
+              <summary>Do I need correlation before running a regression?</summary>
+              <p>Not necessarily, but a correlation matrix is a useful first look. It shows which predictors relate to the outcome and whether any predictors are so strongly related to each other that the regression coefficients will be unstable.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#difference">The core difference in one table</a></li>
+            <li><a href="#worked">A worked example you can follow by hand</a></li>
+            <li><a href="#when">When to use which</a></li>
+            <li><a href="#pearson-spearman">Pearson, Spearman and which correlation to report</a></li>
+            <li><a href="#multiple">Going further: multiple regression and partial correlation</a></li>
+            <li><a href="#mistakes">Five mistakes that mislead readers</a></li>
+            <li><a href="#report">How to report each one</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Statistics</span><h3><a href="p-values-confidence-intervals.html">P-values vs confidence intervals</a></h3><p>What each one means, how they connect, and how to report both.</p></div>
+          <div class="card"><span class="tag">Surveys</span><h3><a href="likert-scale-analysis.html">How to analyze Likert scale data</a></h3><p>Items vs scales, medians vs means, and which tests to run.</p></div>
+          <div class="card"><span class="tag">Workflow</span><h3><a href="reproducible-research-workflow.html">A reproducible research workflow</a></h3><p>Make your analysis easy for an examiner to rerun.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

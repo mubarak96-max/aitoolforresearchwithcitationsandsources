@@ -99,6 +99,14 @@
         },
         {
           "@type": "Question",
+          "name": "Where should I deposit research data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use a trusted repository that issues persistent identifiers such as DOIs. A discipline repository is usually best because the right people will find your data there; otherwise use your institution’s repository or a general one. Check whether your funder names preferred repositories, and avoid personal websites, which disappear."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Can I share qualitative data such as interviews?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -133,7 +141,7 @@
         <p class="kicker">Planning · Data</p>
         <h1>How to write a data management plan that is useful, not just compliant</h1>
         <p class="lead">Funders, universities and ethics committees increasingly ask for a data management plan before research starts. Written well, it also saves you from the classic disasters: lost files, unreadable spreadsheets, consent forms that forbid sharing. This guide walks through each section with an example.</p>
-        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>6 min read</span></div>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>7 min read</span></div>
       </header>
 
       <div class="article-layout">
@@ -187,6 +195,16 @@
             <p><strong>Responsibilities:</strong> student manages data; supervisor approves the plan; no additional costs.</p>
           </div>
 
+          <h2 id="by-type">What changes for different kinds of project</h2>
+          <h3 id="qual">Qualitative projects</h3>
+          <p>Interviews, focus groups and field notes are the hardest data to anonymise, because people can be identified from stories as well as names. Plan how you will pseudonymise transcripts (a key file stored separately and securely), who transcribes (a professional service needs a confidentiality agreement), and whether audio is kept after transcripts are checked. Sharing is often limited to controlled access or to the codebook and interview guide.</p>
+          <h3 id="quant">Quantitative and survey projects</h3>
+          <p>Focus on the codebook, version control of cleaned datasets and analysis scripts. Keep raw data read-only and do all cleaning in a script so every step can be repeated. Watch for indirect identifiers: age, job title and postcode together can identify a person even without a name.</p>
+          <h3 id="lab">Lab and computational projects</h3>
+          <p>Describe instruments, file formats and volumes, which can be large. Say where code lives (a version-controlled repository), how environments are recorded, and which data are raw versus derived. Funders increasingly expect code to be shared alongside data.</p>
+          <h3 id="reuse">Secondary data projects</h3>
+          <p>If you only reuse existing data, the DMP is short but not empty. Record the source, version, licence and access conditions, any agreement you signed, and whether you are allowed to share derived data. Some licences forbid it.</p>
+
           <h2 id="write">How to write yours in an afternoon</h2>
           <ol>
             <li><strong>Find your template.</strong> Your funder or university almost certainly has one. <a href="https://dmponline.dcc.ac.uk/">DMPonline</a>, run by the UK’s Digital Curation Centre, hosts templates for many funders and lets you share drafts with your supervisor.</li>
@@ -233,6 +251,10 @@
               <p>FAIR stands for findable, accessible, interoperable and reusable. It means data is deposited with good metadata and a persistent identifier, has clear access conditions, uses open formats and standards, and comes with documentation and a licence that allow reuse.</p>
             </details>
             <details>
+              <summary>Where should I deposit research data?</summary>
+              <p>Use a trusted repository that issues persistent identifiers such as DOIs. A discipline repository is usually best because the right people will find your data there; otherwise use your institution’s repository or a general one. Check whether your funder names preferred repositories, and avoid personal websites, which disappear.</p>
+            </details>
+            <details>
               <summary>Can I share qualitative data such as interviews?</summary>
               <p>Sometimes. It depends on consent, the risk of re-identification and the sensitivity of the topic. Many projects share anonymised transcripts under controlled access, and some share none. Plan this before collecting data and match your consent form to the plan.</p>
             </details>
@@ -251,6 +273,7 @@
             <li><a href="#sections">The six sections, explained</a></li>
             <li><a href="#fair">FAIR data in plain English</a></li>
             <li><a href="#example">A short worked example</a></li>
+            <li><a href="#by-type">What changes for different kinds of project</a></li>
             <li><a href="#write">How to write yours in an afternoon</a></li>
             <li><a href="#mistakes">Common mistakes</a></li>
             <li><a href="#faq">FAQ</a></li>
