@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Calculate Sample Size for a Survey (Formula + Worked Examples)</title>
+  <meta name="description" content="How to calculate sample size for a survey: the margin of error formula, finite population correction, response rates, and power analysis when you compare groups. With worked examples and a table.">
+  <link rel="canonical" href="/guides/survey-sample-size.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="How to Calculate Sample Size for a Survey (Formula + Worked Examples)">
+  <meta property="og:description" content="Margin of error, finite population correction, response rates and power: survey sample size with worked examples.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Calculate Sample Size for a Survey (Formula + Worked Examples)",
+      "description": "How to calculate sample size for a survey: the margin of error formula, finite population correction, response rates, and power analysis when you compare groups. With worked examples and a table.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/survey-sample-size.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Survey sample size"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good sample size for a survey?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For estimating a percentage in a large population with 95% confidence and a ±5% margin of error, about 385 completed responses. Smaller populations need fewer after the finite population correction. If you are comparing groups, the right size comes from a power analysis and depends on the effect you want to detect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 100 responses enough for a survey?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It gives a margin of error of roughly ±10% at 95% confidence for a large population, which may be enough for a pilot, an exploratory study or a student project. It is usually too small for precise estimates or for detecting small differences between groups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is 385 the magic number in surveys?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because 1.96² × 0.5 × 0.5 / 0.05² = 384.16. That is the sample needed for a ±5% margin of error at 95% confidence when you assume the most cautious proportion, 50%, in a large population. Rounded up, it gives 385."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does population size affect survey sample size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only when the population is small. The finite population correction reduces the required sample noticeably below a few thousand people, but above roughly 20,000 the required sample barely changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I account for low response rates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide the number of completed responses you need by your expected response rate to find how many people to invite, then add a margin for unusable answers. Also check whether responders differ from non-responders, because low response can introduce bias as well as reduce precision."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Survey sample size</nav>
+        <p class="kicker">Methods · Surveys · Statistics</p>
+        <h1>How to calculate sample size for a survey</h1>
+        <p class="lead">The right sample size depends on what you want the survey to do. Estimating a percentage needs one calculation; comparing groups or testing a relationship needs another. This guide covers both, with worked numbers you can check by hand.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>6 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            To estimate a percentage, use n = z² × p(1 − p) / e². With 95% confidence (z = 1.96), the most cautious p = 0.5 and a ±5% margin of error, n = 385. For small populations, apply the finite population correction; for example, a population of 2,000 needs about 323. Then divide by your expected response rate to get the number of people to invite. If you will compare groups or test a relationship, run a power analysis instead.
+          </div>
+
+          <h2 id="goal">First decide what the survey must do</h2>
+          <p>Sample size questions have no single answer because surveys have different goals. Before you calculate anything, decide which of these describes your main research question:</p>
+          <ul>
+            <li><strong>Describe a population.</strong> “What percentage of students at this university use generative AI for coursework?” You need a sample big enough for an acceptable margin of error.</li>
+            <li><strong>Compare groups.</strong> “Do first-year and final-year students differ in how often they use it?” You need enough people in <em>each group</em> to detect a difference of the size you care about.</li>
+            <li><strong>Test a relationship.</strong> “Is use associated with lower confidence in writing?” You need enough cases to detect a correlation or regression effect of a given size.</li>
+          </ul>
+          <p>Also check how you will sample. The formulas below assume a probability sample, where everyone in the population has a known chance of selection. Convenience samples (whoever answers a link on social media) can be large and still biased, and no formula fixes that. The AI for Research explainer on <a href="https://aiforresearch.app/blog/probability-vs-non-probability-sampling">probability vs non-probability sampling</a> covers the difference.</p>
+
+          <h2 id="formula">Estimating a percentage: the formula</h2>
+          <p>For a large population, the sample size needed to estimate a proportion is:</p>
+          <pre><code>n = z² × p × (1 − p) / e²</code></pre>
+          <ul>
+            <li><strong>z</strong> is the z-score for your confidence level: 1.645 for 90%, 1.96 for 95%, 2.576 for 99%.</li>
+            <li><strong>p</strong> is your best guess at the proportion. If you do not know, use 0.5, which gives the largest (safest) sample.</li>
+            <li><strong>e</strong> is the margin of error you can accept, as a decimal: 0.05 for ±5 percentage points.</li>
+          </ul>
+          <h3>Worked example</h3>
+          <p>95% confidence, p = 0.5, margin of error ±5%:</p>
+          <pre><code>n = 1.96² × 0.5 × 0.5 / 0.05²
+  = 3.8416 × 0.25 / 0.0025
+  = 384.16  → round up to 385</code></pre>
+          <p>Halving the margin of error roughly quadruples the sample. At ±3% the same calculation gives about 1,068; at ±10% it gives 97. That is why national polls often settle around ±3%: going further costs a lot for little gain.</p>
+
+          <h2 id="fpc">Small populations: the finite population correction</h2>
+          <p>If your population is small, for example all 2,000 nurses in one health board, you need fewer responses than the formula suggests. Apply the correction:</p>
+          <pre><code>n_adjusted = n / (1 + (n − 1) / N)</code></pre>
+          <p>where N is the population size. With n = 384.16:</p>
+          <ul>
+            <li>N = 2,000: 384.16 / (1 + 383.16 / 2,000) ≈ <strong>323</strong></li>
+            <li>N = 500: 384.16 / (1 + 383.16 / 500) ≈ <strong>218</strong></li>
+            <li>N = 100,000: the correction changes almost nothing (about 383)</li>
+          </ul>
+          <p>Above a population of roughly 20,000, the correction makes little difference. This surprises people: a survey of a city and a survey of a country need about the same sample for the same margin of error.</p>
+
+          <h2 id="table">Quick reference table</h2>
+          <p>Sample sizes for 95% confidence and p = 0.5, with the finite population correction applied (rounded up):</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Population (N)</th><th>±10%</th><th>±5%</th><th>±3%</th></tr></thead>
+              <tbody>
+                <tr><td>200</td><td>66</td><td>132</td><td>169</td></tr>
+                <tr><td>500</td><td>81</td><td>218</td><td>341</td></tr>
+                <tr><td>1,000</td><td>88</td><td>278</td><td>517</td></tr>
+                <tr><td>2,000</td><td>92</td><td>323</td><td>697</td></tr>
+                <tr><td>10,000</td><td>96</td><td>370</td><td>965</td></tr>
+                <tr><td>100,000 or more</td><td>96–97</td><td>383–385</td><td>1,056–1,068</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>If you want to check a figure, the free, open-source <a href="https://www.openepi.com/" rel="noopener">OpenEpi</a> calculators (developed with support from the US Centers for Disease Control and Prevention) include sample size for proportions and for comparing groups.</p>
+
+          <div class="callout">
+            <p><strong>Subgroups need their own numbers.</strong> If you plan to report results separately for, say, four faculties, each faculty needs a sample large enough for the margin of error you will claim for it. A total of 385 split four ways gives about ±10% per faculty, not ±5%.</p>
+          </div>
+
+          <h2 id="response">From sample size to invitations</h2>
+          <p>The formula tells you how many <em>completed</em> responses you need. To find how many people to invite, divide by your expected response rate:</p>
+          <pre><code>invitations = required responses / expected response rate
+            = 385 / 0.25  = 1,540</code></pre>
+          <p>Base the response rate on similar surveys of similar people, not on hope. Then add a margin for incomplete or unusable answers. Low response rates do not only shrink your sample; they raise the risk that responders differ from non-responders. Report your response rate and, where you can, compare responders with the population on known characteristics.</p>
+
+          <h2 id="power">Comparing groups or testing relationships: power analysis</h2>
+          <p>If your main question is a comparison or an association, margin-of-error formulas do not apply. You need a power analysis, which depends on four things:</p>
+          <ol>
+            <li><strong>The smallest effect you care about</strong> (effect size), from earlier studies or practical importance.</li>
+            <li><strong>Significance level</strong>, usually α = 0.05.</li>
+            <li><strong>Power</strong>, usually 0.80: an 80% chance of detecting the effect if it is real.</li>
+            <li><strong>The test you will run</strong>, such as a t-test, chi-square or regression.</li>
+          </ol>
+          <p>Rough figures for a two-group comparison of means at α = 0.05 and 80% power: about 64 per group for a medium effect (Cohen’s d = 0.5), about 176 per group for d = 0.3, and about 394 per group for a small effect (d = 0.2). Detecting a correlation of r = 0.3 needs roughly 85 cases. These numbers grow quickly as effects get smaller, which is why pilot data and earlier studies matter.</p>
+          <p>For the reasoning behind power and how to report it, see the AI for Research guide to <a href="https://aiforresearch.app/blog/statistical-power-and-sample-size">statistical power and sample size</a>.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research</h3>
+            <p>The <a href="https://aiforresearch.app/features/data-lab">Data Lab</a> in AI for Research runs the analysis once responses arrive, from descriptive statistics and margins of error to t-tests, chi-square and regression. It also writes up the methods and results in plain language with the numbers attached, so you can check every figure against the output.</p>
+          </div>
+
+          <h2 id="qual">When a smaller sample is fine</h2>
+          <p>Not every survey needs hundreds of responses:</p>
+          <ul>
+            <li><strong>Pilot surveys</strong> test wording and logistics; 10–30 responses is typical.</li>
+            <li><strong>Census of a small group:</strong> if you can survey everyone (say, 40 staff), aim for as many as possible and report the response rate rather than a margin of error.</li>
+            <li><strong>Exploratory or qualitative designs</strong> aim for depth, not estimates, and are judged by different standards.</li>
+            <li><strong>Student projects</strong> sometimes have practical limits. Say what precision your sample gives, and treat findings as indicative.</li>
+          </ul>
+          <p>Whatever size you end up with, state the calculation, the assumptions and the achieved sample in your methods section. Before you launch, make sure the questions themselves are sound: our guide to <a href="survey-question-design.html">writing survey questions</a> covers the wording rules, and <a href="choose-dissertation-topic.html">choosing a dissertation topic</a> explains how to test whether a survey-based project is feasible in your time frame.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is a good sample size for a survey?</summary>
+              <p>For estimating a percentage in a large population with 95% confidence and a ±5% margin of error, about 385 completed responses. Smaller populations need fewer after the finite population correction. If you are comparing groups, the right size comes from a power analysis and depends on the effect you want to detect.</p>
+            </details>
+            <details>
+              <summary>Is 100 responses enough for a survey?</summary>
+              <p>It gives a margin of error of roughly ±10% at 95% confidence for a large population, which may be enough for a pilot, an exploratory study or a student project. It is usually too small for precise estimates or for detecting small differences between groups.</p>
+            </details>
+            <details>
+              <summary>Why is 385 the magic number in surveys?</summary>
+              <p>Because 1.96² × 0.5 × 0.5 / 0.05² = 384.16. That is the sample needed for a ±5% margin of error at 95% confidence when you assume the most cautious proportion, 50%, in a large population. Rounded up, it gives 385.</p>
+            </details>
+            <details>
+              <summary>Does population size affect survey sample size?</summary>
+              <p>Only when the population is small. The finite population correction reduces the required sample noticeably below a few thousand people, but above roughly 20,000 the required sample barely changes.</p>
+            </details>
+            <details>
+              <summary>How do I account for low response rates?</summary>
+              <p>Divide the number of completed responses you need by your expected response rate to find how many people to invite, then add a margin for unusable answers. Also check whether responders differ from non-responders, because low response can introduce bias as well as reduce precision.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#goal">First decide what the survey must do</a></li>
+            <li><a href="#formula">Estimating a percentage: the formula</a></li>
+            <li><a href="#fpc">Small populations: the correction</a></li>
+            <li><a href="#table">Quick reference table</a></li>
+            <li><a href="#response">From sample size to invitations</a></li>
+            <li><a href="#power">Comparing groups: power analysis</a></li>
+            <li><a href="#qual">When a smaller sample is fine</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Surveys</span><h3><a href="survey-question-design.html">How to write survey questions</a></h3><p>Twelve rules with bad and good examples.</p></div>
+          <div class="card"><span class="tag">Thesis</span><h3><a href="dissertation-timeline.html">Dissertation timeline</a></h3><p>Plan recruitment and buffers backwards from the deadline.</p></div>
+          <div class="card"><span class="tag">Ethics</span><h3><a href="research-ethics-informed-consent.html">Informed consent for research</a></h3><p>What participants must be told before they answer.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

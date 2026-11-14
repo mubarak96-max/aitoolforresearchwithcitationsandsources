@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Management Plan: What to Include, With an Example and Template</title>
+  <meta name="description" content="How to write a data management plan (DMP) for a thesis or grant: the sections funders expect, FAIR data, storage and backup, ethics, sharing and a worked example you can adapt.">
+  <link rel="canonical" href="/guides/data-management-plan.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Data Management Plan: What to Include, With an Example and Template">
+  <meta property="og:description" content="Write a data management plan funders and ethics boards accept, section by section.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Data Management Plan: What to Include, With an Example and Template",
+      "description": "How to write a data management plan (DMP) for a thesis or grant: the sections funders expect, FAIR data, storage and backup, ethics, sharing and a worked example you can adapt.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/data-management-plan.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Data management plan"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a data management plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A data management plan is a short document describing what data a project will collect, how it will be documented, stored and protected, who can access it, and how it will be shared and preserved after the project. Most funders and many universities require one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is a data management plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually one to three pages. Some funders set a limit, often two pages. A short, specific plan that names formats, storage locations, repositories and responsibilities is better than a long general one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do PhD students need a data management plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many universities require one at registration or before data collection, and it is good practice even when not required. It forces early decisions about storage, naming, consent and sharing that are hard to fix later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does FAIR data mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FAIR stands for findable, accessible, interoperable and reusable. It means data is deposited with good metadata and a persistent identifier, has clear access conditions, uses open formats and standards, and comes with documentation and a licence that allow reuse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share qualitative data such as interviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes. It depends on consent, the risk of re-identification and the sensitivity of the topic. Many projects share anonymised transcripts under controlled access, and some share none. Plan this before collecting data and match your consent form to the plan."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Data management plan</nav>
+        <p class="kicker">Planning · Data</p>
+        <h1>How to write a data management plan that is useful, not just compliant</h1>
+        <p class="lead">Funders, universities and ethics committees increasingly ask for a data management plan before research starts. Written well, it also saves you from the classic disasters: lost files, unreadable spreadsheets, consent forms that forbid sharing. This guide walks through each section with an example.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>6 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            A data management plan describes <strong>what data you will collect, how you will document, store and protect it, who can access it, and what happens to it after the project</strong>. Most templates have six parts: data description, documentation and metadata, ethics and legal issues, storage and backup, sharing and preservation, and responsibilities and resources. Keep it short, specific and updated as the project changes.
+          </div>
+
+          <h2 id="who">Who needs a data management plan</h2>
+          <p>Almost every funded research project now needs one. Many national funders and research councils require a DMP at application or soon after award. In the United States, the National Institutes of Health has required a Data Management and Sharing Plan for most funded research since January 2023; its <a href="https://sharing.nih.gov/">scientific data sharing site</a> sets out the elements. European funders generally expect plans that follow the FAIR principles.</p>
+          <p>Even without a requirement, a DMP is worth an hour of a PhD student’s time. It is the document that makes you decide, before you collect anything, where files live, how they are named and what participants agree to.</p>
+
+          <h2 id="sections">The six sections, explained</h2>
+          <h3 id="s1">1. Data description</h3>
+          <p>List each type of data you will collect or reuse, its format and its rough size. Be concrete: “semi-structured interview audio (MP3, about 30 files, 2 GB), transcripts (DOCX, about 30 files), survey responses (CSV, about 400 rows)”. Say which existing datasets you will reuse and under what licence.</p>
+          <h3 id="s2">2. Documentation and metadata</h3>
+          <p>Explain how someone else, or you in two years, will understand the data. That means a README file per dataset, a codebook defining every variable and its values, file naming conventions, version control, and any discipline metadata standard you will follow.</p>
+          <h3 id="s3">3. Ethics and legal compliance</h3>
+          <p>Cover consent, anonymisation or pseudonymisation, data protection law that applies (such as GDPR for personal data from people in the EU or UK), intellectual property and any restrictions from data providers. The key check: your consent form must allow everything the DMP promises, especially sharing.</p>
+          <h3 id="s4">4. Storage and backup</h3>
+          <p>Say where active data is stored, how it is backed up, and how sensitive data is protected. Use your institution’s managed storage rather than personal cloud accounts for anything identifiable. The common rule is <strong>3-2-1</strong>: three copies, on two kinds of storage, one of them off site.</p>
+          <h3 id="s5">5. Sharing and preservation</h3>
+          <p>State which data will be shared, where (a discipline repository or your institution’s repository), when, under what licence, and with what access controls. Explain what will be kept long term and what will be destroyed, and when. If you cannot share some data, say why.</p>
+          <h3 id="s6">6. Responsibilities and resources</h3>
+          <p>Name who is responsible for each task and list costs, such as storage, transcription, repository fees or staff time. Funders often allow these costs in the budget, but only if you ask for them.</p>
+
+          <h2 id="fair">FAIR data in plain English</h2>
+          <p>Many funders ask how your data will be FAIR. The <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a> mean:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Principle</th><th>Meaning</th><th>What you do</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Findable</strong></td><td>People can discover the data</td><td>Deposit in a repository that issues a DOI; write good metadata</td></tr>
+                <tr><td><strong>Accessible</strong></td><td>People can get it, or know how to request it</td><td>State access conditions; use open protocols</td></tr>
+                <tr><td><strong>Interoperable</strong></td><td>It works with other data and tools</td><td>Use open formats (CSV, not proprietary); use standard vocabularies</td></tr>
+                <tr><td><strong>Reusable</strong></td><td>Others can understand and legally reuse it</td><td>Include a codebook, README and clear licence</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>FAIR does not mean open. Sensitive data can be FAIR if its metadata is public and access is controlled.</p>
+
+          <h2 id="example">A short worked example</h2>
+          <p>Here is a condensed DMP for a mixed-methods master’s project on teachers’ use of AI tools:</p>
+          <div class="callout">
+            <p><strong>Data:</strong> online survey of about 300 teachers (CSV, under 5 MB); 20 interviews (audio, about 3 GB; transcripts, DOCX).</p>
+            <p><strong>Documentation:</strong> codebook for all survey variables; README per folder; files named <code>project_type_ID_date_v01</code>.</p>
+            <p><strong>Ethics:</strong> consent covers anonymised data sharing; names and schools removed from transcripts; audio deleted after transcription is checked.</p>
+            <p><strong>Storage:</strong> university encrypted drive with nightly backup; no personal data on laptops or personal cloud.</p>
+            <p><strong>Sharing:</strong> anonymised survey data and codebook deposited in the university repository with a CC BY licence within 6 months of the end of the project; transcripts not shared because of re-identification risk.</p>
+            <p><strong>Responsibilities:</strong> student manages data; supervisor approves the plan; no additional costs.</p>
+          </div>
+
+          <h2 id="write">How to write yours in an afternoon</h2>
+          <ol>
+            <li><strong>Find your template.</strong> Your funder or university almost certainly has one. <a href="https://dmponline.dcc.ac.uk/">DMPonline</a>, run by the UK’s Digital Curation Centre, hosts templates for many funders and lets you share drafts with your supervisor.</li>
+            <li><strong>List every data type</strong> in a table first. The rest of the plan follows from it.</li>
+            <li><strong>Talk to your ethics office and library.</strong> Research data librarians review DMPs for free and know local storage options.</li>
+            <li><strong>Align with your consent form.</strong> Read them side by side.</li>
+            <li><strong>Keep it short.</strong> Two pages is typical. Specific beats long.</li>
+            <li><strong>Review it at milestones,</strong> such as after ethics approval and before analysis.</li>
+          </ol>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research Projects</h3>
+            <p>For keeping the plan, protocol, literature and drafts of one study together, we use <a href="https://aiforresearch.app/features/projects">Projects in AI for Research</a>. It keeps the documents, sources and AI work for a study in one place, which makes the “documentation” section of a DMP easier to honour. For academics juggling several grants, the overview of <a href="https://aiforresearch.app/for/academics">AI for Research for academic staff</a> shows how the workspace fits around teaching and supervision. Keep identifiable participant data in your institution’s approved storage, as your DMP says.</p>
+          </div>
+
+          <h2 id="mistakes">Common mistakes</h2>
+          <ul class="checklist">
+            <li>Promising open sharing when the consent form does not allow it.</li>
+            <li>Saying “data will be stored securely” without naming where.</li>
+            <li>Forgetting reused data and its licence terms.</li>
+            <li>No codebook, so the data cannot be understood later.</li>
+            <li>Planning to share data “on request” with no process or contact that will outlast the project.</li>
+            <li>Writing the plan once and never updating it.</li>
+          </ul>
+          <p>A DMP sits alongside your ethics application and proposal. Our guide to <a href="research-proposal-structure.html">research proposal structure</a> shows where data management belongs in the method section, and the <a href="phd-research-toolkit.html">PhD research toolkit</a> lists the tools that help keep the plan.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is a data management plan?</summary>
+              <p>A data management plan is a short document describing what data a project will collect, how it will be documented, stored and protected, who can access it, and how it will be shared and preserved after the project. Most funders and many universities require one.</p>
+            </details>
+            <details>
+              <summary>How long is a data management plan?</summary>
+              <p>Usually one to three pages. Some funders set a limit, often two pages. A short, specific plan that names formats, storage locations, repositories and responsibilities is better than a long general one.</p>
+            </details>
+            <details>
+              <summary>Do PhD students need a data management plan?</summary>
+              <p>Many universities require one at registration or before data collection, and it is good practice even when not required. It forces early decisions about storage, naming, consent and sharing that are hard to fix later.</p>
+            </details>
+            <details>
+              <summary>What does FAIR data mean?</summary>
+              <p>FAIR stands for findable, accessible, interoperable and reusable. It means data is deposited with good metadata and a persistent identifier, has clear access conditions, uses open formats and standards, and comes with documentation and a licence that allow reuse.</p>
+            </details>
+            <details>
+              <summary>Can I share qualitative data such as interviews?</summary>
+              <p>Sometimes. It depends on consent, the risk of re-identification and the sensitivity of the topic. Many projects share anonymised transcripts under controlled access, and some share none. Plan this before collecting data and match your consent form to the plan.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#who">Who needs a data management plan</a></li>
+            <li><a href="#sections">The six sections, explained</a></li>
+            <li><a href="#fair">FAIR data in plain English</a></li>
+            <li><a href="#example">A short worked example</a></li>
+            <li><a href="#write">How to write yours in an afternoon</a></li>
+            <li><a href="#mistakes">Common mistakes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Proposals</span><h3><a href="research-proposal-structure.html">Research proposal structure</a></h3><p>Every section, what reviewers want, and an outline.</p></div>
+          <div class="card"><span class="tag">PhD</span><h3><a href="phd-research-toolkit.html">The PhD research toolkit</a></h3><p>The tools each year of a doctorate needs.</p></div>
+          <div class="card"><span class="tag">Methods</span><h3><a href="pilot-study.html">Pilot study: what it is and how to run one</a></h3><p>Feasibility goals, sample size and what to report.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
