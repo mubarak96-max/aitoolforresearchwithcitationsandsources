@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Systematic Review Software: How to Choose (Screening, Extraction, PRISMA)</title>
+  <meta name="description" content="How to choose systematic review software: the features that matter at each stage, from search logging and dual screening to Cohen's kappa, extraction and PRISMA 2020 diagrams.">
+  <link rel="canonical" href="/guides/systematic-review-software.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Systematic Review Software: How to Choose">
+  <meta property="og:description" content="The features that matter at each stage of a systematic review, and how the main tools compare.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Systematic Review Software: How to Choose (Screening, Extraction, PRISMA)",
+        "description": "How to choose systematic review software, stage by stage.",
+        "datePublished": "2026-11-14",
+        "dateModified": "2026-11-14",
+        "author": { "@type": "Organization", "name": "Methods & Sources editorial team", "url": "/about.html" },
+        "publisher": { "@type": "Organization", "name": "Methods & Sources", "url": "/" },
+        "mainEntityOfPage": "/guides/systematic-review-software.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Systematic review software" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is the best software for a systematic review?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your team and scale. Large funded reviews often use Covidence or DistillerSR through an institutional licence. Rayyan is popular for fast, collaborative screening. If you also need to write up the review with citations in the same place, an end-to-end workspace such as AI for Research covers search, screening, extraction, PRISMA and writing." } },
+          { "@type": "Question", "name": "Is there free systematic review software?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Rayyan has a free tier, several open-source tools exist, and AI for Research's free plan includes one small systematic review project. Free tiers usually limit the number of records, reviewers or projects, so check current limits before you start." } },
+          { "@type": "Question", "name": "Can AI screen studies for a systematic review?", "acceptedAnswer": { "@type": "Answer", "text": "AI can suggest include or exclude decisions and rank records by likely relevance, which saves time. Reporting standards still expect human reviewers to make and record decisions, so treat AI as an assistant or as a second check, and report how you used it." } },
+          { "@type": "Question", "name": "Do I need two reviewers for a systematic review?", "acceptedAnswer": { "@type": "Answer", "text": "Most guidance, including the Cochrane Handbook, recommends at least two independent reviewers for screening and data extraction, with a method to resolve disagreements. Agreement is often reported with Cohen's kappa." } },
+          { "@type": "Question", "name": "Can I make a PRISMA diagram in Excel or Word?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, using the PRISMA 2020 template, but you must update the counts by hand every time something changes. Software that builds the diagram from your live screening counts removes that error-prone step." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Systematic review software</nav>
+        <p class="kicker">Methods · Systematic reviews</p>
+        <h1>Systematic review software: how to choose the right tool for your review</h1>
+        <p class="lead">A systematic review lives or dies on its records: every search, every screening decision, every disagreement and every number in the PRISMA diagram. Good software keeps that record for you. This guide shows what to look for at each stage, then compares the main options.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>12 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Choose software that logs your searches, de-duplicates imports, supports two independent reviewers with conflict resolution and an agreement statistic, holds a custom extraction form, and builds a PRISMA 2020 diagram from live counts. If your institution licenses a dedicated tool, start there. If you also need to write the review, pick a tool that connects screening to the manuscript.
+          </div>
+
+          <h2 id="why">Why spreadsheets stop working</h2>
+          <p>Many first reviews start in Excel. It works for a hundred records and one reviewer. It breaks when you have two thousand records, two reviewers working blind, a third person resolving conflicts, a full-text stage and a protocol that says exactly how all of this happens. The failures are quiet: a filter left on, a duplicate missed, a count in the PRISMA diagram that no longer matches the sheet. Reviewers and editors do notice.</p>
+          <p>Dedicated software removes those failure points by keeping each decision as a record with a reviewer, a date and a reason.</p>
+
+          <h2 id="stages">What you need at each stage</h2>
+
+          <h3 id="protocol">1. Protocol</h3>
+          <p>Before searching, you write a protocol: the question, eligibility criteria, databases, screening process and planned analysis. Many reviews register it on PROSPERO or <a href="https://osf.io/">OSF</a>, and the <a href="https://training.cochrane.org/handbook">Cochrane Handbook</a> sets out what a protocol should cover. Software helps if it stores the protocol with the project, so the criteria you screen against are visible at every decision.</p>
+
+          <h3 id="search">2. Search and import</h3>
+          <p>You will search several databases, such as PubMed, Embase, Scopus, Web of Science or CINAHL, and import the results. Look for:</p>
+          <ul>
+            <li>Import of RIS, BibTeX, PubMed and common database export formats (if you are still writing the strings, see <a href="boolean-search-operators.html">Boolean search operators</a>).</li>
+            <li>A search log: database, date, exact string and number of hits.</li>
+            <li>Automatic de-duplication, with a way to review possible duplicates before removing them.</li>
+          </ul>
+
+          <h3 id="screening">3. Title and abstract screening</h3>
+          <p>This is where most of the time goes. Essential features:</p>
+          <ul>
+            <li><strong>Blind dual screening:</strong> two reviewers decide independently and cannot see each other’s votes.</li>
+            <li><strong>Conflict resolution:</strong> disagreements go to a discussion or a third reviewer.</li>
+            <li><strong>Agreement statistics:</strong> Cohen’s kappa or percentage agreement, often reported in the methods. If you are not sure how to calculate or interpret it, the AI for Research guide to <a href="https://aiforresearch.app/blog/cohens-kappa-inter-rater-reliability">Cohen’s kappa for screening agreement</a> is clear and practical.</li>
+            <li><strong>Keyboard shortcuts and highlights:</strong> highlighting include and exclude terms in abstracts makes screening noticeably faster.</li>
+          </ul>
+
+          <h3 id="fulltext">4. Full-text screening</h3>
+          <p>Records that pass go to full text. The software should let you attach PDFs, record a reason for every exclusion from a fixed list (wrong population, wrong outcome, wrong design), and count those reasons for the PRISMA diagram.</p>
+
+          <h3 id="extraction">5. Data extraction and quality</h3>
+          <p>You extract study details into a form: design, sample, intervention, outcomes, results. You also assess risk of bias with a tool such as RoB 2 or ROBINS-I (our <a href="risk-of-bias-assessment.html">risk of bias assessment guide</a> explains which to use). Look for custom forms, dual extraction with comparison, and export to CSV for analysis in R, Stata or RevMan.</p>
+
+          <h3 id="prisma">6. PRISMA diagram and reporting</h3>
+          <p>The <a href="https://www.prisma-statement.org/">PRISMA 2020</a> flow diagram reports how many records you found, removed, screened, excluded and included. Building it by hand is error-prone because counts change until the last day. Software that draws it from live counts saves real time. For a walk-through with worked numbers, see this guide to <a href="https://aiforresearch.app/blog/how-to-make-a-prisma-flow-diagram">making a PRISMA flow diagram</a>.</p>
+
+          <h2 id="compare">The main options compared</h2>
+          <p>Feature sets and prices change often. The table reflects the general position of each tool as of late 2026; check each vendor’s current plans before you commit.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tool</th><th>Best known for</th><th>Consider when</th></tr></thead>
+              <tbody>
+                <tr><td>Covidence</td><td>Structured, guided workflow widely used for Cochrane-style reviews</td><td>Your institution has a licence and the team wants a standard process</td></tr>
+                <tr><td>Rayyan</td><td>Fast, collaborative title and abstract screening with a free tier</td><td>Screening speed and easy collaboration matter most</td></tr>
+                <tr><td>DistillerSR</td><td>Highly configurable enterprise workflows and audit trails</td><td>Regulatory, industry or very large reviews</td></tr>
+                <tr><td>EPPI-Reviewer</td><td>Flexible coding and synthesis, used widely in social science</td><td>Complex coding schemes or non-medical reviews</td></tr>
+                <tr><td>AI for Research</td><td>Screening, extraction and PRISMA connected to search and writing</td><td>You want the review and the manuscript in one place</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>If you are deciding between a dedicated screener and a broader workspace, the comparisons of <a href="https://aiforresearch.app/alternatives/covidence">Covidence and its alternatives</a> and <a href="https://aiforresearch.app/alternatives/rayyan">Rayyan and its alternatives</a> on the AI for Research site lay out where each one is stronger.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research</h3>
+            <p>For smaller reviews, and for theses where the review becomes a chapter, we use the <a href="https://aiforresearch.app/features/systematic-review">AI for Research systematic review workspace</a>. It covers the protocol, logged searches in PubMed, Europe PMC and OpenAlex, imports of Scopus or Web of Science exports, title-and-abstract then full-text screening with a second human or AI reviewer, conflicts with Cohen’s kappa, an extraction table, and a PRISMA 2020 diagram built from live counts. Because it sits next to the editor and library, included studies can be cited straight into the write-up. The free plan includes one small review to try it.</p>
+          </div>
+
+          <h2 id="scenarios">Which tool for which situation</h2>
+          <p>Most choices come down to four common situations.</p>
+          <h3 id="s-student">A master’s or PhD student doing a review for a thesis</h3>
+          <p>You may be the only screener, with a supervisor as second reviewer for a sample. Your review becomes a chapter, so the hard part is often moving from included studies to a written synthesis with correct citations. Favour a tool that is free or cheap at small scale, exports everything, and connects to your writing. Ask your library first: many universities already license a screening tool and run training on it.</p>
+          <h3 id="s-team">A small team publishing in a journal</h3>
+          <p>Two or three reviewers, a few thousand records, a registered protocol. Blind dual screening, conflict handling and a kappa figure are non-negotiable. A fast, collaborative screener works well, as long as extraction and the PRISMA counts are handled carefully. Agree on one place where the final numbers live.</p>
+          <h3 id="s-large">A large or funded review</h3>
+          <p>Tens of thousands of records, several reviewers, perhaps a guideline panel waiting on results. Audit trails, role permissions and configurable forms matter more than price. This is where institutional platforms earn their cost.</p>
+          <h3 id="s-rapid">A rapid or scoping review</h3>
+          <p>Lighter rules, shorter deadlines. AI-assisted screening and prioritisation help most here. Be explicit in your report about which shortcuts you took, such as a single screener with a sample checked by a second person.</p>
+
+          <h2 id="mistakes">Mistakes that software will not catch</h2>
+          <ul>
+            <li><strong>Criteria that drift.</strong> Reviewers slowly interpret criteria differently. Re-calibrate on a shared sample every few hundred records.</li>
+            <li><strong>Searches you cannot reproduce.</strong> Save the exact strings and dates, even if the software logs them, and paste them into an appendix.</li>
+            <li><strong>Grey literature left out.</strong> Trial registries, theses and reports often sit outside the main databases. Decide in the protocol whether to search them.</li>
+            <li><strong>Counts edited by hand.</strong> If you ever change a number outside the tool, the PRISMA diagram and your text can disagree. Make changes in one place.</li>
+          </ul>
+
+          <h2 id="ai">Using AI in screening, responsibly</h2>
+          <p>AI screening suggestions can cut screening time a lot, especially on large result sets with many obvious excludes. They also make mistakes, and a missed study is a real problem in a systematic review. Three safe patterns:</p>
+          <ol>
+            <li><strong>AI as second reviewer:</strong> one human screens everything; AI acts as the second vote. Every conflict goes to a human.</li>
+            <li><strong>AI as prioritiser:</strong> AI ranks records by likely relevance so humans see the probable includes first. Humans still screen all records.</li>
+            <li><strong>AI as checker:</strong> after human screening, AI flags excluded records that look relevant for a second look.</li>
+          </ol>
+          <p>Whichever you use, report it: which tool, which stage, how decisions were made and checked. Calibrate first: have both reviewers and the AI screen the same 50 to 100 records, compare results and refine your criteria before the full run.</p>
+
+          <h2 id="checklist">Pre-purchase checklist</h2>
+          <ul class="checklist">
+            <li>Does it import the formats your databases export?</li>
+            <li>Does it log searches and show de-duplication decisions?</li>
+            <li>Can two reviewers screen blind, with conflicts resolved and recorded?</li>
+            <li>Does it calculate an agreement statistic?</li>
+            <li>Can you build your own extraction and risk-of-bias forms?</li>
+            <li>Does it produce a PRISMA 2020 diagram from live counts?</li>
+            <li>Can you export everything (records, decisions, extraction) as CSV or RIS?</li>
+            <li>Does the pricing fit your number of reviewers, records and projects?</li>
+          </ul>
+
+          <div class="callout">
+            <p><strong>Not sure you need a full systematic review?</strong> Scoping reviews and narrative reviews have lighter requirements. Our <a href="ai-literature-review-workflow.html">AI literature review workflow</a> covers the narrative route, and our guide to <a href="identify-research-gap.html">finding a research gap</a> explains how a scoping search can tell you whether a systematic review is worth doing.</p>
+          </div>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What is the best software for a systematic review?</summary>
+              <p>It depends on your team and scale. Large funded reviews often use Covidence or DistillerSR through an institutional licence. Rayyan is popular for fast, collaborative screening. If you also need to write up the review with citations in the same place, an end-to-end workspace such as AI for Research covers search, screening, extraction, PRISMA and writing.</p>
+            </details>
+            <details>
+              <summary>Is there free systematic review software?</summary>
+              <p>Yes. Rayyan has a free tier, several open-source tools exist, and AI for Research’s free plan includes one small systematic review project. Free tiers usually limit the number of records, reviewers or projects, so check current limits before you start.</p>
+            </details>
+            <details>
+              <summary>Can AI screen studies for a systematic review?</summary>
+              <p>AI can suggest include or exclude decisions and rank records by likely relevance, which saves time. Reporting standards still expect human reviewers to make and record decisions, so treat AI as an assistant or as a second check, and report how you used it.</p>
+            </details>
+            <details>
+              <summary>Do I need two reviewers for a systematic review?</summary>
+              <p>Most guidance, including the Cochrane Handbook, recommends at least two independent reviewers for screening and data extraction, with a method to resolve disagreements. Agreement is often reported with Cohen’s kappa.</p>
+            </details>
+            <details>
+              <summary>Can I make a PRISMA diagram in Excel or Word?</summary>
+              <p>Yes, using the PRISMA 2020 template, but you must update the counts by hand every time something changes. Software that builds the diagram from your live screening counts removes that error-prone step.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#why">Why spreadsheets stop working</a></li>
+            <li><a href="#stages">What you need at each stage</a></li>
+            <li><a href="#compare">The main options compared</a></li>
+            <li><a href="#scenarios">Which tool for which situation</a></li>
+            <li><a href="#mistakes">Mistakes software won’t catch</a></li>
+            <li><a href="#ai">Using AI in screening</a></li>
+            <li><a href="#checklist">Pre-purchase checklist</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Workflow</span><h3><a href="ai-literature-review-workflow.html">An AI literature review workflow</a></h3><p>Six stages, from question to synthesis, with the checks at each.</p></div>
+          <div class="card"><span class="tag">Comparison</span><h3><a href="elicit-vs-consensus-vs-scispace.html">Elicit vs Consensus vs SciSpace</a></h3><p>What each tool was built for and when to use another.</p></div>
+          <div class="card"><span class="tag">PhD</span><h3><a href="phd-research-toolkit.html">The PhD research toolkit</a></h3><p>What to set up in year one, and what to add later.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

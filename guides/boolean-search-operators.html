@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boolean Operators for Research: AND, OR, NOT With Database Examples</title>
+  <meta name="description" content="How to use Boolean operators for research: AND, OR, NOT, brackets, phrases, truncation and proximity, with worked search strings for PubMed, Scopus and Google Scholar.">
+  <link rel="canonical" href="/guides/boolean-search-operators.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="Boolean Operators for Research: AND, OR, NOT With Database Examples">
+  <meta property="og:description" content="Build a database search string that finds what you need and nothing else, step by step.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Boolean Operators for Research: AND, OR, NOT With Database Examples",
+      "description": "How to use Boolean operators for research: AND, OR, NOT, brackets, phrases, truncation and proximity, with worked search strings for PubMed, Scopus and Google Scholar.",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Methods & Sources editorial team",
+        "url": "/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Methods & Sources",
+        "url": "/"
+      },
+      "mainEntityOfPage": "/guides/boolean-search-operators.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Boolean search operators"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the three main Boolean operators?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AND, OR and NOT. AND narrows a search by requiring all terms, OR widens it by accepting any term, and NOT excludes records containing a term. Most research searches use OR to group synonyms and AND to connect concepts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Boolean operators need to be in capital letters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In many databases they do, and in Google Scholar OR must be capitalised to work as an operator. Writing them in capitals everywhere is a safe habit and makes your search string easier to read."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Google Scholar support Boolean search?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. It supports OR, exact phrases in quotation marks, a minus sign to exclude words and operators like intitle:. It does not support truncation and handles long nested strings unreliably, so it is better for checking than for a reportable systematic search."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between truncation and a wildcard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Truncation, usually an asterisk at the end of a word stem, finds all endings, such as nurs* for nurse, nurses and nursing. A wildcard replaces one character inside a word, such as wom?n for woman and women. Symbols vary by database, so check the help page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many search terms should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no fixed number. Aim for two to four concepts joined with AND, and as many synonyms within each concept as you need to catch the different ways authors describe it. Test by checking that papers you already know about appear."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Boolean search operators</nav>
+        <p class="kicker">Searching · Database skills</p>
+        <h1>Boolean operators for research: build a search string that actually works</h1>
+        <p class="lead">Three small words, AND, OR and NOT, decide whether a database returns 40 relevant papers or 40,000 irrelevant ones. This guide shows how to combine them with brackets, phrases and truncation, and how the syntax changes from one database to the next.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>8 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Combine synonyms for each concept with <strong>OR</strong> inside brackets, then join the concepts with <strong>AND</strong>. Use quotation marks for exact phrases and an asterisk for word endings. Use <strong>NOT</strong> rarely, because it silently removes relevant papers. Example: <code>(adolescent* OR teen*) AND ("social media" OR instagram) AND (sleep OR insomnia)</code>.
+          </div>
+
+          <h2 id="what">What Boolean operators do</h2>
+          <p>Boolean operators are the logic words a database uses to combine your search terms. They come from George Boole’s algebra of sets, which is why a Venn diagram is the easiest way to picture them. Each term you type returns a set of records. The operator tells the database how to combine the sets.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Operator</th><th>Meaning</th><th>Effect on results</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><strong>AND</strong></td><td>Both terms must appear</td><td>Fewer, more focused results</td><td><code>burnout AND nurses</code></td></tr>
+                <tr><td><strong>OR</strong></td><td>Either term may appear</td><td>More results, wider net</td><td><code>burnout OR "compassion fatigue"</code></td></tr>
+                <tr><td><strong>NOT</strong></td><td>Exclude the second term</td><td>Fewer results, risk of losing good ones</td><td><code>burnout NOT students</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The rule of thumb that covers most searches: <strong>OR within a concept, AND between concepts.</strong></p>
+
+          <h2 id="build">Build a search string in five steps</h2>
+          <h3 id="s1">1. Split your question into concepts</h3>
+          <p>Write your research question as a sentence, then underline the two to four ideas that every relevant paper must contain. For “Does social media use affect sleep in teenagers?” the concepts are <em>teenagers</em>, <em>social media</em> and <em>sleep</em>. Leave out words like “affect” or “impact”: authors describe effects in too many ways to search for them reliably.</p>
+          <p>If your question is clinical, a framework such as PICO (population, intervention, comparison, outcome) does this split for you. You usually search only P, I and O, because comparisons are rarely named in titles and abstracts.</p>
+
+          <h3 id="s2">2. List synonyms for each concept</h3>
+          <p>Authors in different countries and disciplines use different words. Collect them from three places: the titles and abstracts of two or three papers you already know are relevant, the database’s thesaurus (MeSH in PubMed, Emtree in Embase), and spelling variants such as <em>behaviour</em> and <em>behavior</em>.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Teenagers</th><th>Social media</th><th>Sleep</th></tr></thead>
+              <tbody>
+                <tr><td>adolescent*</td><td>"social media"</td><td>sleep*</td></tr>
+                <tr><td>teen*</td><td>"social network*"</td><td>insomnia</td></tr>
+                <tr><td>youth</td><td>instagram</td><td>"bedtime"</td></tr>
+                <tr><td>"young people"</td><td>tiktok</td><td>"screen time" (check: may be too broad)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 id="s3">3. Join synonyms with OR, inside brackets</h3>
+          <p>Each column becomes one bracketed block: <code>(adolescent* OR teen* OR youth OR "young people")</code>. Brackets matter. Without them, many databases read AND before OR, so <code>teen* OR youth AND sleep</code> means “anything about teens, plus youth papers about sleep”, which is not what you meant.</p>
+
+          <h3 id="s4">4. Join the blocks with AND</h3>
+          <pre><code>(adolescent* OR teen* OR youth OR "young people")
+AND ("social media" OR "social network*" OR instagram OR tiktok)
+AND (sleep* OR insomnia OR bedtime)</code></pre>
+
+          <h3 id="s5">5. Test, read and adjust</h3>
+          <p>Run the string and read the first 30 titles. Ask two questions. Are most of them relevant? If not, a synonym is too broad: remove it or move it to a phrase. Are the papers you already knew about included? If not, a synonym is missing. Checking known papers is the fastest way to measure recall without a librarian.</p>
+
+          <h2 id="modifiers">Phrases, truncation, wildcards and proximity</h2>
+          <ul>
+            <li><strong>Quotation marks</strong> search an exact phrase: <code>"randomized controlled trial"</code>. Without them, the words can appear anywhere in the record.</li>
+            <li><strong>Truncation</strong> with <code>*</code> finds word endings: <code>adolescen*</code> matches adolescent, adolescents and adolescence. Do not truncate too early: <code>cat*</code> also matches category and catheter.</li>
+            <li><strong>Wildcards</strong> replace a single character in some databases, for example <code>wom?n</code> in Scopus or Web of Science. Check the help page, because the symbol varies.</li>
+            <li><strong>Proximity operators</strong> require two words to appear near each other. Web of Science uses <code>NEAR/n</code>, Scopus uses <code>W/n</code> and <code>PRE/n</code>, Ovid uses <code>adjn</code>, and PubMed supports proximity within title and abstract with the form <code>"teen sleep"[tiab:~3]</code>. Proximity is more precise than AND and less strict than a phrase.</li>
+            <li><strong>Field tags</strong> limit a term to part of the record, such as the title or abstract. In PubMed, <code>[tiab]</code> searches title and abstract and <code>[mh]</code> searches the MeSH heading.</li>
+          </ul>
+
+          <h2 id="databases">How syntax differs between databases</h2>
+          <p>The logic is the same everywhere, but the details are not. Copy your string into each database and adjust it, rather than assuming it will behave the same way.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Database</th><th>Truncation</th><th>Phrase</th><th>Things to know</th></tr></thead>
+              <tbody>
+                <tr><td>PubMed</td><td><code>*</code></td><td><code>" "</code></td><td>Automatic term mapping adds MeSH terms to plain searches; quoting or truncating a term turns it off for that term. Combine <code>[mh]</code> and <code>[tiab]</code> for good recall.</td></tr>
+                <tr><td>Scopus</td><td><code>*</code></td><td><code>" "</code> (loose) or <code>{ }</code> (exact)</td><td>Use <code>TITLE-ABS-KEY( )</code> to search title, abstract and keywords.</td></tr>
+                <tr><td>Web of Science</td><td><code>*</code></td><td><code>" "</code></td><td>Use the Topic field (<code>TS=</code>) for title, abstract and keywords.</td></tr>
+                <tr><td>Google Scholar</td><td>None</td><td><code>" "</code></td><td>Supports OR, quotes, minus to exclude and <code>intitle:</code>. No brackets nesting you can rely on, no truncation, and a query length limit. Use it to check, not as your main systematic search.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The National Library of Medicine’s <a href="https://pubmed.ncbi.nlm.nih.gov/help/">PubMed User Guide</a> is the best reference for PubMed’s rules, and the AI for Research team has a step-by-step walkthrough of <a href="https://aiforresearch.app/blog/how-to-search-pubmed">searching PubMed with MeSH terms and filters</a>.</p>
+
+          <h2 id="not">Why NOT is dangerous</h2>
+          <p>NOT removes every record that mentions the excluded term anywhere it is searched. Suppose you search <code>depression NOT children</code> to find adult studies. A trial of adults whose abstract says “unlike earlier studies in children” disappears. You never see it, so you never know it was lost.</p>
+          <p>Safer options:</p>
+          <ul>
+            <li>Use the database’s filters, such as age group or publication type, which rely on indexing rather than any mention of a word.</li>
+            <li>Exclude only in the title field, where a mention is more likely to mean the paper is about that topic.</li>
+            <li>Leave the records in and exclude them during screening, where a person reads them.</li>
+          </ul>
+
+          <div class="callout warn">
+            <p><strong>For systematic reviews:</strong> record the exact string, database, platform and date for every search. Reporting standards expect it, and the <a href="https://training.cochrane.org/handbook">Cochrane Handbook</a> chapter on searching explains why. Our <a href="systematic-review-software.html">systematic review software guide</a> covers tools that log searches for you.</p>
+          </div>
+
+          <h2 id="ai">Boolean search and AI search together</h2>
+          <p>AI research assistants let you type a question in plain language instead of a Boolean string. They match on meaning, so they find papers that use words you did not think of. That is a real advantage early on, when you do not yet know the vocabulary of a field.</p>
+          <p>They are weaker where Boolean search is strong: the same query does not always return the same papers, and you cannot report exactly what was searched. A practical split is to use AI search to <em>discover</em> vocabulary and key papers, then write a Boolean string for the search you will report.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research paper search</h3>
+            <p>We start with the <a href="https://aiforresearch.app/features/paper-search">AI for Research paper finder</a>, which searches OpenAlex, Semantic Scholar, PubMed and the main preprint servers in one go, with filters for year, citation count and open access. Reading its top results is a quick way to collect the synonyms for step 2. When the search needs to be reproducible, its team’s guide to a <a href="https://aiforresearch.app/blog/systematic-review-search-strategy">systematic review search strategy</a> takes the same string through each database.</p>
+          </div>
+
+          <h2 id="mistakes">Common mistakes and quick fixes</h2>
+          <ul class="checklist">
+            <li><strong>Missing brackets.</strong> Fix: wrap every OR group in brackets, even when it seems obvious.</li>
+            <li><strong>Too many concepts.</strong> Each AND cuts results. If you have five AND blocks, drop the weakest one and handle it during screening.</li>
+            <li><strong>Searching outcomes that authors rarely name.</strong> Fix: search the population and intervention, and judge outcomes when you read.</li>
+            <li><strong>Over-truncation.</strong> Fix: test the truncated stem alone and look at what it matches.</li>
+            <li><strong>One database only.</strong> Fix: run the search in at least two databases with different coverage, then deduplicate.</li>
+            <li><strong>Never checking known papers.</strong> Fix: list three to five papers that must appear and confirm they do.</li>
+          </ul>
+          <p>Once your search returns a manageable, relevant set, the next job is keeping track of what you read. Our guide to <a href="research-note-taking.html">taking notes on research papers</a> picks up from there, and <a href="grey-literature-search.html">searching grey literature</a> covers the reports and theses databases miss.</p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>What are the three main Boolean operators?</summary>
+              <p>AND, OR and NOT. AND narrows a search by requiring all terms, OR widens it by accepting any term, and NOT excludes records containing a term. Most research searches use OR to group synonyms and AND to connect concepts.</p>
+            </details>
+            <details>
+              <summary>Do Boolean operators need to be in capital letters?</summary>
+              <p>In many databases they do, and in Google Scholar OR must be capitalised to work as an operator. Writing them in capitals everywhere is a safe habit and makes your search string easier to read.</p>
+            </details>
+            <details>
+              <summary>Does Google Scholar support Boolean search?</summary>
+              <p>Partly. It supports OR, exact phrases in quotation marks, a minus sign to exclude words and operators like intitle:. It does not support truncation and handles long nested strings unreliably, so it is better for checking than for a reportable systematic search.</p>
+            </details>
+            <details>
+              <summary>What is the difference between truncation and a wildcard?</summary>
+              <p>Truncation, usually an asterisk at the end of a word stem, finds all endings, such as nurs* for nurse, nurses and nursing. A wildcard replaces one character inside a word, such as wom?n for woman and women. Symbols vary by database, so check the help page.</p>
+            </details>
+            <details>
+              <summary>How many search terms should I use?</summary>
+              <p>There is no fixed number. Aim for two to four concepts joined with AND, and as many synonyms within each concept as you need to catch the different ways authors describe it. Test by checking that papers you already know about appear.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#what">What Boolean operators do</a></li>
+            <li><a href="#build">Build a search string in five steps</a></li>
+            <li><a href="#modifiers">Phrases, truncation, wildcards and proximity</a></li>
+            <li><a href="#databases">How syntax differs between databases</a></li>
+            <li><a href="#not">Why NOT is dangerous</a></li>
+            <li><a href="#ai">Boolean search and AI search together</a></li>
+            <li><a href="#mistakes">Common mistakes and quick fixes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Searching</span><h3><a href="grey-literature-search.html">How to search grey literature</a></h3><p>Reports, theses, registries and preprints that databases miss.</p></div>
+          <div class="card"><span class="tag">Software</span><h3><a href="systematic-review-software.html">Systematic review software compared</a></h3><p>Tools for screening, kappa, extraction and PRISMA.</p></div>
+          <div class="card"><span class="tag">Workflow</span><h3><a href="ai-literature-review-workflow.html">How to use AI for a literature review</a></h3><p>Six stages from question to synthesis, with checks.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

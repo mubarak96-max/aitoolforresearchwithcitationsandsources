@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Hallucinated Citations: How to Spot Fake References From ChatGPT</title>
+  <meta name="description" content="Why AI tools invent references, the four kinds of fake citation, and a five-minute check for each one before a hallucinated source reaches your paper or thesis.">
+  <link rel="canonical" href="/guides/ai-hallucinated-citations.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Methods &amp; Sources">
+  <meta property="og:title" content="AI Hallucinated Citations: How to Spot Fake References From ChatGPT">
+  <meta property="og:description" content="The four kinds of fake AI citation and a five-minute check for each.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f5c46">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "AI Hallucinated Citations: How to Spot Fake References From ChatGPT",
+        "description": "Why AI tools invent references, the four kinds of fake citation, and a five-minute check for each one.",
+        "datePublished": "2026-11-14",
+        "dateModified": "2026-11-14",
+        "author": { "@type": "Organization", "name": "Methods & Sources editorial team", "url": "/about.html" },
+        "publisher": { "@type": "Organization", "name": "Methods & Sources", "url": "/" },
+        "mainEntityOfPage": "/guides/ai-hallucinated-citations.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "AI hallucinated citations" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Why does ChatGPT make up references?", "acceptedAnswer": { "@type": "Answer", "text": "A language model predicts likely text. A reference is a very predictable pattern of author names, a year, a title and a journal, so the model can produce one that looks right without checking that it exists. Unless the tool retrieves records from a database and cites only those, any reference it writes may be invented." } },
+          { "@type": "Question", "name": "How common are fake citations from AI?", "acceptedAnswer": { "@type": "Answer", "text": "In a 2023 study in Scientific Reports, Walters and Wilder found that 55% of the references produced by GPT-3.5 and 18% of those produced by GPT-4 were fabricated. Newer models and tools with search do better, but no general chatbot reaches zero." } },
+          { "@type": "Question", "name": "How do I check if a citation is real?", "acceptedAnswer": { "@type": "Answer", "text": "Search the exact title in quotation marks in Google Scholar, OpenAlex or PubMed, and resolve the DOI at doi.org. Then check that the authors, year and journal match the record, and read the abstract to confirm the paper supports the sentence it is cited for." } },
+          { "@type": "Question", "name": "What happens if I submit a paper with a fake citation?", "acceptedAnswer": { "@type": "Answer", "text": "At best, a reviewer or marker asks for a correction. At worst, it is treated as fabrication or academic misconduct, and published papers have been corrected or retracted for it. Lawyers have also been sanctioned by courts for filing briefs with AI-invented cases." } },
+          { "@type": "Question", "name": "Are there AI tools that do not invent citations?", "acceptedAnswer": { "@type": "Answer", "text": "Tools that retrieve records from scholarly indexes and cite only those records are far safer, because each reference comes from a search result rather than from the model's memory. You still need to check that each paper says what the sentence claims." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../guides/index.html" aria-current="page">Guides</a>
+        <a href="../index.html#workflow">Research workflow</a>
+        <a href="../guides/elicit-vs-consensus-vs-scispace.html">Tool comparisons</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="article-head read">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a> / Hallucinated citations</nav>
+        <p class="kicker">Citations · Verification</p>
+        <h1>AI hallucinated citations: how to spot fake references before they reach your paper</h1>
+        <p class="lead">A fabricated reference looks exactly like a real one: plausible authors, a sensible year, a journal that exists. This guide explains why AI tools invent them, the four forms they take, and a quick check that catches each one.</p>
+        <div class="meta"><span>By the Methods &amp; Sources editorial team</span><span>Updated 14 November 2026</span><span>10 min read</span></div>
+      </header>
+
+      <div class="article-layout">
+        <article class="prose">
+          <div class="answer">
+            <strong>Short answer</strong>
+            Treat every reference a chatbot writes as unverified until you have found it yourself. Search the exact title in a scholarly index, resolve the DOI, match the authors and year, and read enough of the paper to confirm it supports your sentence. Better still, use a tool that only cites records it retrieved from a database, so the reference cannot be made up in the first place.
+          </div>
+
+          <h2 id="why">Why AI tools invent references</h2>
+          <p>A large language model writes by predicting the next likely word. A reference is one of the most predictable patterns in academic text: surname, initial, year in brackets, a title in sentence case, a journal name, volume, pages. The model has seen millions of them. It can produce a new one that fits the pattern perfectly without any record behind it.</p>
+          <p>The model is not lying in a human sense. It has no list of papers to look up. Unless the tool around it runs a real search and passes the results in, the model is writing from memory, and memory blends real authors, real journals and real topics into references that never existed.</p>
+          <p>How often does this happen? A widely cited 2023 study by <a href="https://doi.org/10.1038/s41598-023-41032-5">Walters and Wilder in <em>Scientific Reports</em></a> (13:14045) asked ChatGPT to write short literature reviews and then checked every reference. <strong>55% of GPT-3.5’s references and 18% of GPT-4’s were fabricated</strong>, and many of the real ones had errors. Models have improved since, but the mechanism has not changed: a model without retrieval can still invent a source.</p>
+
+          <h2 id="types">The four kinds of fake citation</h2>
+          <p>“Hallucinated citation” covers more than one problem. Each needs a different check, so it helps to name them.</p>
+
+          <h3 id="type1">1. The phantom paper</h3>
+          <p>The reference does not exist at all. The authors may be real researchers in the field, and the journal may be real, but no such article was ever published. This is the classic hallucination, and the easiest to catch: search the title and nothing comes back.</p>
+
+          <h3 id="type2">2. The Frankenstein reference</h3>
+          <p>Parts of several real references stitched together: a real title with the wrong authors, a real author with the wrong year, or a correct paper with a DOI that points somewhere else. These are dangerous because a quick search seems to find something. You only notice when you compare every field.</p>
+
+          <h3 id="type3">3. The real but wrong source</h3>
+          <p>The paper exists and the details are correct, but it does not say what the sentence claims. It may be on a related topic, report the opposite finding, or mention the claim only in passing. This is the hardest type to catch and the one that most often survives into submitted work, because the reference checks out.</p>
+
+          <h3 id="type4">4. The secondhand citation</h3>
+          <p>The claim really comes from a review or a news article, but it is cited to the original study the review mentions, which you have not read. Sometimes the original says something narrower. This happens with human writers too, but AI makes it far more common.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Type</th><th>What you see</th><th>The check that catches it</th></tr></thead>
+              <tbody>
+                <tr><td>Phantom paper</td><td>No search result for the title</td><td>Exact-title search in two indexes</td></tr>
+                <tr><td>Frankenstein</td><td>A near match with one field off</td><td>Compare authors, year, journal, DOI</td></tr>
+                <tr><td>Real but wrong</td><td>Correct reference, unrelated content</td><td>Read the abstract and the cited section</td></tr>
+                <tr><td>Secondhand</td><td>Claim worded like a review summary</td><td>Find the exact passage in the original</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="check">The five-minute check for every reference</h2>
+          <p>Run these steps for each reference in an AI-assisted draft. With practice it takes two to five minutes a source. That sounds slow, but it is much faster than defending a fake citation to an examiner.</p>
+          <ol>
+            <li><strong>Search the exact title in quotation marks</strong> in Google Scholar, <a href="https://openalex.org/">OpenAlex</a> or <a href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a>. If nothing appears in two indexes, treat it as a phantom.</li>
+            <li><strong>Resolve the DOI</strong> by pasting it after <code>https://doi.org/</code>. Check that it lands on the same paper, not a different one in the same journal.</li>
+            <li><strong>Compare every field.</strong> First author, year, journal, volume and pages should match the publisher’s record. One mismatch means you rebuild the reference from the record, not from the AI output.</li>
+            <li><strong>Read the abstract</strong> and ask: does this paper support my sentence, partly support it, or say something else?</li>
+            <li><strong>Find the passage.</strong> For any specific number, quote or finding, locate it in the full text and note the page. If you cannot find it, rewrite the sentence or find another source.</li>
+          </ol>
+          <p>For a longer walk-through of checking AI output beyond citations, the AI for Research team has a good guide on <a href="https://aiforresearch.app/blog/how-to-fact-check-ai">how to fact-check what ChatGPT, Gemini and Claude tell you</a>.</p>
+
+          <h2 id="signs">Warning signs in a reference list</h2>
+          <p>You can often spot a suspect list before you check a single entry. Look harder when you see:</p>
+          <ul class="checklist">
+            <li>Titles that sound like a summary of your prompt rather than a real paper (“The Role of X in Y: A Comprehensive Review”).</li>
+            <li>Many references from the same two or three famous authors in the field.</li>
+            <li>DOIs that follow a journal’s pattern but have suspiciously round or repeated numbers.</li>
+            <li>Page ranges that are missing, or the same for different papers.</li>
+            <li>Years that cluster on the model’s training period, with nothing recent.</li>
+            <li>Specific statistics attributed to a paper that never reports them in its abstract.</li>
+            <li>Papers that have since been retracted. Check suspicious ones against <a href="https://retractionwatch.com/">Retraction Watch</a>.</li>
+          </ul>
+
+          <h2 id="prevent">How to stop fake citations at the source</h2>
+          <p>Checking catches problems. Changing how you work prevents them.</p>
+          <h3 id="search-first">Search first, then write</h3>
+          <p>Find the papers before you ask anything to write about them. Build a list of sources you have actually opened, then draft from that list. When you already have a claim and need evidence for it, work backwards from the claim; there is a practical method for <a href="https://aiforresearch.app/blog/how-to-find-references-for-a-claim">finding references for a claim you have already written</a>.</p>
+          <h3 id="retrieval">Use retrieval-based tools for anything you will cite</h3>
+          <p>A research assistant that searches a scholarly index and cites only the records it retrieved cannot produce a phantom paper, because every reference is a search result. It can still produce type 3 and type 4 errors, so you still read the sources, ideally with a structured <a href="critical-appraisal-tools.html">critical appraisal checklist</a> for the ones that carry your argument. Our guide to <a href="choose-ai-research-assistant.html">choosing an AI research assistant</a> includes a test for exactly this.</p>
+          <h3 id="never-copy">Never copy a reference from the chat into your list</h3>
+          <p>Always rebuild references from the database record, through your reference manager or a citation generator. This removes Frankenstein errors and gets the style right at the same time. If you are unsure which style your department wants, see our <a href="citation-styles-compared.html">comparison of APA, MLA, Chicago and Harvard</a>.</p>
+
+          <div class="tool-pick">
+            <p class="tag">What we use</p>
+            <h3>AI for Research</h3>
+            <p>We draft with <a href="https://aiforresearch.app/">AI for Research</a> because its answers are built from records retrieved across more than 250 million papers, and any citation marker the model was not given is removed before you see the text. That design takes phantom papers off the table. Its <a href="https://aiforresearch.app/features/citation-checker">citation checker</a> then flags claims that are unsupported by the cited source, which targets the “real but wrong” type, and the free <a href="https://aiforresearch.app/tools/citation-generator">citation generator</a> builds references from the actual record in more than 10,000 styles.</p>
+          </div>
+
+          <h2 id="scale">Checking a long reference list</h2>
+          <p>A thesis may cite 200 sources. Checking each one by hand is worth it, but you can work smarter:</p>
+          <ul>
+            <li><strong>Start with the risky ones.</strong> Check first any reference that came from an AI chat, a reference you have not opened, and any that supports a key claim or a specific number.</li>
+            <li><strong>Import the list.</strong> Paste the DOIs into your reference manager or a citation tool. References that fail to resolve show up at once.</li>
+            <li><strong>Check in pairs.</strong> Swap reference lists with a colleague. Fresh eyes catch mismatched years and authors faster.</li>
+            <li><strong>Keep a status column.</strong> Mark each reference as verified, verified with page, or to check. Do not submit until the last column is empty.</li>
+          </ul>
+
+          <h2 id="caught">What to do if you find one in submitted work</h2>
+          <p>If a fake reference has already gone out, act quickly and openly.</p>
+          <ul>
+            <li><strong>Coursework:</strong> tell your tutor before they find it. Explain what happened and supply a corrected version. Most policies treat an honest early correction very differently from a discovered fabrication.</li>
+            <li><strong>Manuscript under review:</strong> contact the editor, explain the error and send a corrected file. Do not wait for the reviewers.</li>
+            <li><strong>Published paper:</strong> request a correction from the journal. If the fake source supported a key claim, the claim itself needs re-checking.</li>
+          </ul>
+
+          <div class="callout warn">
+            <p><strong>Remember:</strong> many universities and journals now ask you to declare AI use. A fabricated reference is usually treated as a research integrity issue whether or not AI was involved. Our guide to <a href="ai-policy-academic-writing.html">AI rules in academic writing</a> covers what to disclose.</p>
+          </div>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary>Why does ChatGPT make up references?</summary>
+              <p>A language model predicts likely text. A reference is a very predictable pattern of author names, a year, a title and a journal, so the model can produce one that looks right without checking that it exists. Unless the tool retrieves records from a database and cites only those, any reference it writes may be invented.</p>
+            </details>
+            <details>
+              <summary>How common are fake citations from AI?</summary>
+              <p>In a 2023 study in Scientific Reports, Walters and Wilder found that 55% of the references produced by GPT-3.5 and 18% of those produced by GPT-4 were fabricated. Newer models and tools with search do better, but no general chatbot reaches zero.</p>
+            </details>
+            <details>
+              <summary>How do I check if a citation is real?</summary>
+              <p>Search the exact title in quotation marks in Google Scholar, OpenAlex or PubMed, and resolve the DOI at doi.org. Then check that the authors, year and journal match the record, and read the abstract to confirm the paper supports the sentence it is cited for.</p>
+            </details>
+            <details>
+              <summary>What happens if I submit a paper with a fake citation?</summary>
+              <p>At best, a reviewer or marker asks for a correction. At worst, it is treated as fabrication or academic misconduct, and published papers have been corrected or retracted for it. Lawyers have also been sanctioned by courts for filing briefs with AI-invented cases.</p>
+            </details>
+            <details>
+              <summary>Are there AI tools that do not invent citations?</summary>
+              <p>Tools that retrieve records from scholarly indexes and cite only those records are far safer, because each reference comes from a search result rather than from the model’s memory. You still need to check that each paper says what the sentence claims.</p>
+            </details>
+          </div>
+
+          <div class="author-box">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <p><strong>Methods &amp; Sources editorial team.</strong> We write practical guides on research methods and the tools researchers use. We test every tool we mention on real questions. <a href="../about.html">How we work</a>.</p>
+          </div>
+        </article>
+
+        <aside class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+            <li><a href="#why">Why AI invents references</a></li>
+            <li><a href="#types">The four kinds of fake citation</a></li>
+            <li><a href="#check">The five-minute check</a></li>
+            <li><a href="#signs">Warning signs in a list</a></li>
+            <li><a href="#prevent">Stop fakes at the source</a></li>
+            <li><a href="#scale">Checking a long list</a></li>
+            <li><a href="#caught">If you find one in submitted work</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <h2>Keep reading</h2>
+        <div class="grid grid-3">
+          <div class="card"><span class="tag">Tools</span><h3><a href="choose-ai-research-assistant.html">How to choose an AI research assistant</a></h3><p>Nine tests to run before you trust any tool with your thesis.</p></div>
+          <div class="card"><span class="tag">Citations</span><h3><a href="citation-styles-compared.html">Citation styles compared</a></h3><p>APA, MLA, Chicago and Harvard side by side, with examples.</p></div>
+          <div class="card"><span class="tag">Policy</span><h3><a href="ai-policy-academic-writing.html">AI rules in academic writing</a></h3><p>What universities and journals allow, and what to disclose.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">M</span>Methods &amp; Sources</a>
+          <p class="muted small" style="margin-top:12px">Practical guides to research methods, academic writing and the AI tools that help, tested on real questions.</p>
+        </div>
+        <div>
+          <h4>Start here</h4>
+          <ul>
+            <li><a href="choose-ai-research-assistant.html">Choosing an AI research assistant</a></li>
+            <li><a href="ai-literature-review-workflow.html">AI literature review workflow</a></li>
+            <li><a href="phd-research-toolkit.html">The PhD research toolkit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Methods</h4>
+          <ul>
+            <li><a href="systematic-review-software.html">Systematic review software</a></li>
+            <li><a href="identify-research-gap.html">Finding a research gap</a></li>
+            <li><a href="citation-styles-compared.html">Citation styles compared</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">All guides</a></li>
+            <li><a href="../about.html">About &amp; editorial policy</a></li>
+            <li><a href="https://aiforresearch.app/">AI for Research</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Methods &amp; Sources</span>
+        <span>Published by the team behind AI for Research. Always read your sources.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
