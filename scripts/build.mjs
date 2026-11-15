@@ -180,12 +180,16 @@ console.log(`guides/index.html: ${ordered.length} guides in ${sections.length} s
 // ---- Optional sitemap ----
 const domain = process.argv[2]?.replace(/\/+$/, '');
 if (domain) {
-  if (!/^https?:\/\/[^/]+$/.test(domain)) throw new Error('Pass the domain as https://example.org');
+  const siteUrl = new URL(domain);
+  if (!['https:', 'http:'].includes(siteUrl.protocol) || siteUrl.search || siteUrl.hash || siteUrl.username || siteUrl.password) {
+    throw new Error('Pass the site URL as https://example.org or https://example.org/project');
+  }
+  const escapeXml = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
   const today = new Date().toISOString().slice(0, 10);
   const paths = ['/', '/guides/', '/about.html', ...ordered.map((g) => `/guides/${g.slug}.html`)];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((p) => `  <url><loc>${domain}${p}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${paths.map((p) => `  <url><loc>${escapeXml(domain + p)}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `;
   writeFileSync(join(ROOT, 'sitemap.xml'), xml);

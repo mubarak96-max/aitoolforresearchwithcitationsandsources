@@ -32,7 +32,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate sitemap
+        env:
+          SITE_URL: https://aitoolforresearchwithcitationsandsources.online
+        run: node scripts/build.mjs "$SITE_URL"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
