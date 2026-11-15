@@ -311,3 +311,32 @@ tr:last-child td { border-bottom: 0; }
   html { scroll-behavior: auto; }
   .card { transition: none; }
 }
+
+/* ---------- AI for Research recommendations ---------- */
+.research-recommendation {
+  padding: clamp(22px, 4vw, 36px);
+  margin: 30px 0;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+}
+.research-recommendation-section { padding-top: 0; }
+.research-recommendation-section .research-recommendation { margin: 0; }
+.research-recommendation .research-recommendation-label {
+  margin: 0 0 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.research-recommendation h2, .research-recommendation h3 { margin: 0 0 12px; }
+.research-recommendation p { max-width: 65ch; }
+.research-recommendation .btn { color: var(--paper); text-decoration: none; white-space: normal; }
+.research-recommendation .btn:hover { color: var(--paper); }
+.research-recommendation .research-recommendation-disclosure {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--ink-2);
+}
